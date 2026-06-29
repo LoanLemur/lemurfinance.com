@@ -1,9 +1,129 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const title = "Welcome to Astro";
 ---
 
-<Layout>
-  <h1>{title}</h1>
-  <h1>Hello, world!</h1></Layout>
+<Layout title="Payments, Lending, and Collections Infrastructure">
+	<header>
+		<nav aria-label="Primary navigation">
+			<a href="/">Lemur</a>
+			<a href="contact.html">Contact</a>
+		</nav>
+	</header>
+
+	<main>
+		<section aria-labelledby="hero-heading">
+			<h1 id="hero-heading">
+				Payments, lending, and collections — <strong>engineered</strong> for your business.
+			</h1>
+			<p>
+				Payment processing, financing programs, and receivables recovery. Built around how
+				your business already works.
+			</p>
+		</section>
+
+		<section aria-labelledby="how-we-work-heading">
+			<h2 id="how-we-work-heading">How We Work</h2>
+			<p>
+				Every deployment starts with your existing systems of record, your workflows, your
+				customers. We configure and manage our platform around what you already have, not the
+				other way around. Our fee is tied to the revenue we help you collect. We only do well
+				when you do.
+			</p>
+		</section>
+
+		<section aria-labelledby="platform-heading">
+			<h2 id="platform-heading">The Platform</h2>
+
+			<article>
+				<h3>Patient &amp; Consumer Financing</h3>
+				<p>
+					Your patients need a procedure but can't pay upfront. We give them flexible monthly
+					plans at checkout — and pay you in full within days. You take zero credit risk.
+					Built for dental, veterinary, and similar practices.
+				</p>
+				<figure>
+					<figcaption>Payment plan flow diagram</figcaption>
+				</figure>
+			</article>
+
+			<article>
+				<h3>In-House Lending</h3>
+				<p>
+					For merchants who want to offer financing directly to their customers without the
+					operational overhead. Automated ACH debits timed to customer payroll cycles, credit
+					assessment that goes beyond FICO, and portfolio management. No lending operation
+					required.
+				</p>
+				<figure>
+					<figcaption>Lending platform timeline and portfolio diagram</figcaption>
+				</figure>
+			</article>
+
+			<article>
+				<h3>Automated Collections</h3>
+				<p>
+					Past-due accounts sitting in a spreadsheet aren't recovering themselves. Our system
+					contacts delinquent customers, negotiates payment plans, and collects — all without
+					your team picking up the phone.
+				</p>
+				<figure>
+					<figcaption>Automated collections conversation flow</figcaption>
+				</figure>
+			</article>
+		</section>
+
+		<section aria-labelledby="built-by-heading">
+			<h2 id="built-by-heading">Built By</h2>
+			<p>
+				The founding team has spent their careers building payments and lending products for
+				fintech leaders. They started Lemur to bring that same infrastructure to the
+				businesses that need it most.
+			</p>
+
+			<ul>
+				<li>
+					<h3>Tom Little</h3>
+					<p>Partner</p>
+				</li>
+				<li>
+					<h3>Nick Kishfy</h3>
+					<p>Partner</p>
+				</li>
+				<li>
+					<h3>Chris Shoemaker</h3>
+					<p>Partner</p>
+				</li>
+			</ul>
+
+			<section aria-labelledby="previously-built-for-heading">
+				<h3 id="previously-built-for-heading">Previously built for</h3>
+				<ul>
+					<li>Fiserv</li>
+					<li>Credit Karma</li>
+					<li>MoneyLion</li>
+					<li>Innovation Refunds</li>
+					<li>Dow Jones</li>
+				</ul>
+			</section>
+		</section>
+
+		<section aria-labelledby="integrations-heading">
+			<h2 id="integrations-heading">Integrated with</h2>
+			<ul>
+				<li>Stripe</li>
+				<li>Plaid</li>
+				<li>Tua</li>
+				<li>Open Dental</li>
+				<li>Twilio</li>
+			</ul>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2026 Lemur Finance, LLC</p>
+		<nav aria-label="Legal navigation">
+			<a href="terms.html">Terms &amp; Conditions</a>
+			<a href="privacy.html">Privacy Policy</a>
+		</nav>
+	</footer>
+</Layout>
