@@ -38,6 +38,16 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## Orb development
+
+Amp orbs automatically install dependencies, start the Astro development server, and expose it
+through a temporary Cloudflare Quick Tunnel. The remote preview URL is stored in
+`.amp/preview-url`; run `.agents/preview` to print it or repair the preview services.
+
+The `trycloudflare.com` URL is public, temporary, and intended only for testing development work
+from another device. It does not deploy the site to Cloudflare or change the production hosting;
+production deployments remain on Vercel.
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

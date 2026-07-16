@@ -8,6 +8,10 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+In an orb, `.agents/resume` starts the dev server and a Cloudflare Quick Tunnel. The current
+remote preview URL is stored in `.amp/preview-url`. Run `.agents/preview` to repair the preview,
+and include that URL when reporting UI changes so they can be tested from another device.
+
 ## Documentation
 
 Full documentation: https://docs.astro.build

@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+# local agent runtime files
+.amp/
+
 # dependencies
 node_modules/
 
