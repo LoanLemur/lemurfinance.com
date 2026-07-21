@@ -1,9 +1,11 @@
 ---
 layout: ../layouts/Layout.astro
 title: "Privacy Policy"
+description: "How Lemur Finance collects, uses, shares, retains, and protects information when people and businesses use its services."
+document: true
 ---
 
-## Privacy Policy
+# Privacy Policy
 
 The Privacy Policy describes the information Lemur Finance, LLC and our affiliates (collectively, "Lemur Finance," "we," and "us") collect when a person or business ("you," "your") signs up to accept Lemur Finance; accesses or uses in any manner any Lemur Finance application, product, service, feature, technology, content, or website (collectively, "Services"); or otherwise contacts or interacts with us.
 

@@ -1,8 +1,11 @@
 ---
 layout: ../layouts/Layout.astro
+title: "Terms of Service"
+description: "The terms and conditions governing access to and use of Lemur Finance websites, applications, products, and services."
+document: true
 ---
 
-## Terms of Service
+# Terms of Service
 
 These terms and conditions (the "Agreement") govern the relationship between Lemur Finance, including its subsidiaries, affiliates, agents, and assigns ("Lemur Finance," "our," "we," "Company"), and you ("you," "your") when using services, features, and tools through the website, mobile application, or any other digital platform (collectively, the "Services"). By accessing or using the Services, you acknowledge reading, understanding, and agreeing to be bound by this Agreement. If you disagree, you must stop using the Services immediately.
 

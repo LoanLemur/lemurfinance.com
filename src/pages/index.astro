@@ -84,9 +84,36 @@ const companies = [
   "Innovation Refunds",
   "Dow Jones",
 ];
+
+const description =
+  "Lemur designs and connects payment, financing, servicing, and collections infrastructure to fit your customer journey and existing systems.";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.lemurfinance.com/#website",
+      name: "Lemur Finance",
+      url: "https://www.lemurfinance.com/",
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.lemurfinance.com/#organization",
+      name: "Lemur Finance, LLC",
+      url: "https://www.lemurfinance.com/",
+      logo: "https://www.lemurfinance.com/logo.svg",
+    },
+  ],
+};
 ---
 
-<Layout title="Payments, Lending, and Collections Infrastructure">
+<Layout title="Payments, Lending, and Collections Infrastructure" {description}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  />
   <a
     href="#main"
     class="bg-brand-solid text-on-brand sr-only z-50 px-4 py-3 text-sm font-semibold focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
@@ -129,7 +156,7 @@ const companies = [
     </nav>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <div class="bg-canvas text-foreground">
       <section
         class="max-w-page mx-auto flex w-full flex-col gap-10 px-5 py-16 sm:px-8 sm:py-20 lg:gap-12 lg:px-14 lg:py-24"

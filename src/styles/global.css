@@ -116,7 +116,7 @@
   --semantic-brand-control-hover: var(--yellow-4);
   --semantic-brand-control-active: var(--yellow-5);
   --semantic-brand-border: var(--yellow-7);
-  --semantic-brand-focus: var(--yellow-8);
+  --semantic-brand-focus: var(--sand-12);
   --semantic-brand-solid: var(--yellow-9);
   --semantic-brand-solid-hover: var(--yellow-10);
   --semantic-brand-text: var(--yellow-11);
@@ -149,4 +149,79 @@
 :root.dark {
   color-scheme: dark;
   --semantic-on-brand: var(--sand-1);
+}
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--semantic-foreground);
+  outline-offset: 4px;
+}
+
+.legal-content {
+  text-wrap: pretty;
+}
+
+.legal-content h1,
+.legal-content h2,
+.legal-content h3 {
+  color: var(--semantic-foreground);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.legal-content h1 {
+  font-size: var(--step-4);
+  margin-block-end: 2rem;
+}
+
+.legal-content h2 {
+  font-size: var(--step-2);
+  margin-block: 3rem 1rem;
+}
+
+.legal-content h3 {
+  font-size: var(--step-1);
+  margin-block: 2rem 0.75rem;
+}
+
+.legal-content p,
+.legal-content li {
+  color: var(--semantic-muted);
+  font-size: var(--step--1);
+  line-height: 1.75;
+}
+
+.legal-content p + p,
+.legal-content ul + p,
+.legal-content ol + p {
+  margin-block-start: 1rem;
+}
+
+.legal-content ul,
+.legal-content ol {
+  margin-block: 1rem;
+  padding-inline-start: 1.5rem;
+}
+
+.legal-content ul {
+  list-style: disc;
+}
+
+.legal-content ol {
+  list-style: decimal;
+}
+
+.legal-content a {
+  color: var(--semantic-foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--semantic-brand-text);
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 0.2em;
+}
+
+@media (forced-colors: active) {
+  :where(a, button, input, select, textarea, summary):focus-visible {
+    outline-color: Highlight;
+  }
 }
