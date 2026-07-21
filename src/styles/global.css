@@ -55,6 +55,12 @@
   --color-brand-solid-hover: var(--semantic-brand-solid-hover);
   --color-brand-text: var(--semantic-brand-text);
   --color-on-brand: var(--semantic-on-brand);
+  --color-inverse: var(--semantic-inverse);
+  --color-inverse-elevated: var(--semantic-inverse-elevated);
+  --color-inverse-foreground: var(--semantic-inverse-foreground);
+  --color-inverse-muted: var(--semantic-inverse-muted);
+  --color-inverse-border: var(--semantic-inverse-border);
+  --color-inverse-brand: var(--semantic-inverse-brand);
 
   --text-*: initial;
 
@@ -66,6 +72,28 @@
   --text-2xl: var(--step-3);
   --text-3xl: var(--step-4);
   --text-4xl: var(--step-5);
+
+  --text-label: var(--step--2);
+  --text-label--line-height: 1.35;
+  --text-label--letter-spacing: 0.12em;
+  --text-copy: var(--step--1);
+  --text-copy--line-height: 1.65;
+  --text-lead: var(--step-0);
+  --text-lead--line-height: 1.55;
+  --text-title: var(--step-1);
+  --text-title--line-height: 1.2;
+  --text-title--letter-spacing: -0.015em;
+  --text-heading: var(--step-3);
+  --text-heading--line-height: 1.1;
+  --text-heading--letter-spacing: -0.025em;
+  --text-section: var(--step-4);
+  --text-section--line-height: 1.05;
+  --text-section--letter-spacing: -0.03em;
+  --text-display: var(--step-5);
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.04em;
+
+  --container-page: 90rem;
 }
 
 :root {
@@ -91,6 +119,20 @@
   --semantic-brand-solid-hover: var(--yellow-10);
   --semantic-brand-text: var(--yellow-11);
   --semantic-on-brand: var(--sand-12);
+  --semantic-inverse: var(--sand-12);
+  --semantic-inverse-elevated: color-mix(
+    in oklab,
+    var(--sand-12),
+    var(--sand-11) 12%
+  );
+  --semantic-inverse-foreground: var(--sand-2);
+  --semantic-inverse-muted: var(--sand-8);
+  --semantic-inverse-border: color-mix(
+    in oklab,
+    var(--sand-2) 20%,
+    transparent
+  );
+  --semantic-inverse-brand: var(--yellow-9);
 
   --step--2: clamp(0.7035rem, 0.8072rem + -0.1152vw, 0.7813rem);
   --step--1: clamp(0.9375rem, 0.9374rem + 0.0003vw, 0.9377rem);
