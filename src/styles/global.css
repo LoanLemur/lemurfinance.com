@@ -55,6 +55,17 @@
   --color-brand-solid-hover: var(--semantic-brand-solid-hover);
   --color-brand-text: var(--semantic-brand-text);
   --color-on-brand: var(--semantic-on-brand);
+
+  --text-*: initial;
+
+  --text-xs: var(--step--2);
+  --text-sm: var(--step--1);
+  --text-base: var(--step-0);
+  --text-lg: var(--step-1);
+  --text-xl: var(--step-2);
+  --text-2xl: var(--step-3);
+  --text-3xl: var(--step-4);
+  --text-4xl: var(--step-5);
 }
 
 :root {
@@ -80,6 +91,15 @@
   --semantic-brand-solid-hover: var(--yellow-10);
   --semantic-brand-text: var(--yellow-11);
   --semantic-on-brand: var(--sand-12);
+
+  --step--2: clamp(0.7035rem, 0.8072rem + -0.1152vw, 0.7813rem);
+  --step--1: clamp(0.9375rem, 0.9374rem + 0.0003vw, 0.9377rem);
+  --step-0: clamp(1.125rem, 1.0833rem + 0.1852vw, 1.25rem);
+  --step-1: clamp(1.35rem, 1.2446rem + 0.4685vw, 1.6663rem);
+  --step-2: clamp(1.62rem, 1.4196rem + 0.8905vw, 2.2211rem);
+  --step-3: clamp(1.944rem, 1.6051rem + 1.5063vw, 2.9607rem);
+  --step-4: clamp(2.3328rem, 1.7948rem + 2.3909vw, 3.9467rem);
+  --step-5: clamp(2.7994rem, 1.9788rem + 3.6467vw, 5.2609rem);
 }
 
 :root.dark {
