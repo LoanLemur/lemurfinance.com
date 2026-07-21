@@ -1,1 +1,88 @@
 @import "tailwindcss";
+@import "@radix-ui/colors/sand.css";
+@import "@radix-ui/colors/sand-dark.css";
+@import "@radix-ui/colors/yellow.css";
+@import "@radix-ui/colors/yellow-dark.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-*: initial;
+
+  --color-neutral-1: var(--sand-1);
+  --color-neutral-2: var(--sand-2);
+  --color-neutral-3: var(--sand-3);
+  --color-neutral-4: var(--sand-4);
+  --color-neutral-5: var(--sand-5);
+  --color-neutral-6: var(--sand-6);
+  --color-neutral-7: var(--sand-7);
+  --color-neutral-8: var(--sand-8);
+  --color-neutral-9: var(--sand-9);
+  --color-neutral-10: var(--sand-10);
+  --color-neutral-11: var(--sand-11);
+  --color-neutral-12: var(--sand-12);
+
+  --color-brand-1: var(--yellow-1);
+  --color-brand-2: var(--yellow-2);
+  --color-brand-3: var(--yellow-3);
+  --color-brand-4: var(--yellow-4);
+  --color-brand-5: var(--yellow-5);
+  --color-brand-6: var(--yellow-6);
+  --color-brand-7: var(--yellow-7);
+  --color-brand-8: var(--yellow-8);
+  --color-brand-9: var(--yellow-9);
+  --color-brand-10: var(--yellow-10);
+  --color-brand-11: var(--yellow-11);
+  --color-brand-12: var(--yellow-12);
+
+  --color-canvas: var(--semantic-canvas);
+  --color-surface: var(--semantic-surface);
+  --color-control: var(--semantic-control);
+  --color-control-hover: var(--semantic-control-hover);
+  --color-control-active: var(--semantic-control-active);
+  --color-separator: var(--semantic-separator);
+  --color-border: var(--semantic-border);
+  --color-border-hover: var(--semantic-border-hover);
+  --color-muted: var(--semantic-muted);
+  --color-foreground: var(--semantic-foreground);
+  --color-brand-subtle: var(--semantic-brand-subtle);
+  --color-brand-control: var(--semantic-brand-control);
+  --color-brand-control-hover: var(--semantic-brand-control-hover);
+  --color-brand-control-active: var(--semantic-brand-control-active);
+  --color-brand-border: var(--semantic-brand-border);
+  --color-brand-focus: var(--semantic-brand-focus);
+  --color-brand-solid: var(--semantic-brand-solid);
+  --color-brand-solid-hover: var(--semantic-brand-solid-hover);
+  --color-brand-text: var(--semantic-brand-text);
+  --color-on-brand: var(--semantic-on-brand);
+}
+
+:root {
+  color-scheme: light;
+
+  --semantic-canvas: var(--sand-1);
+  --semantic-surface: var(--sand-2);
+  --semantic-control: var(--sand-3);
+  --semantic-control-hover: var(--sand-4);
+  --semantic-control-active: var(--sand-5);
+  --semantic-separator: var(--sand-6);
+  --semantic-border: var(--sand-7);
+  --semantic-border-hover: var(--sand-8);
+  --semantic-muted: var(--sand-11);
+  --semantic-foreground: var(--sand-12);
+  --semantic-brand-subtle: var(--yellow-2);
+  --semantic-brand-control: var(--yellow-3);
+  --semantic-brand-control-hover: var(--yellow-4);
+  --semantic-brand-control-active: var(--yellow-5);
+  --semantic-brand-border: var(--yellow-7);
+  --semantic-brand-focus: var(--yellow-8);
+  --semantic-brand-solid: var(--yellow-9);
+  --semantic-brand-solid-hover: var(--yellow-10);
+  --semantic-brand-text: var(--yellow-11);
+  --semantic-on-brand: var(--sand-12);
+}
+
+:root.dark {
+  color-scheme: dark;
+  --semantic-on-brand: var(--sand-1);
+}
