@@ -7,6 +7,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
+  --font-sans: var(--font-plus-jakarta-sans);
+
   --color-*: initial;
 
   --color-neutral-1: var(--sand-1);
