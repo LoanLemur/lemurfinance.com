@@ -1,0 +1,226 @@
+@import "tailwindcss";
+@import "@radix-ui/colors/sand.css";
+@import "@radix-ui/colors/sand-dark.css";
+@import "@radix-ui/colors/yellow.css";
+@import "@radix-ui/colors/yellow-dark.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: var(--font-plus-jakarta-sans);
+
+  --color-*: initial;
+
+  --color-neutral-1: var(--sand-1);
+  --color-neutral-2: var(--sand-2);
+  --color-neutral-3: var(--sand-3);
+  --color-neutral-4: var(--sand-4);
+  --color-neutral-5: var(--sand-5);
+  --color-neutral-6: var(--sand-6);
+  --color-neutral-7: var(--sand-7);
+  --color-neutral-8: var(--sand-8);
+  --color-neutral-9: var(--sand-9);
+  --color-neutral-10: var(--sand-10);
+  --color-neutral-11: var(--sand-11);
+  --color-neutral-12: var(--sand-12);
+
+  --color-brand-1: var(--yellow-1);
+  --color-brand-2: var(--yellow-2);
+  --color-brand-3: var(--yellow-3);
+  --color-brand-4: var(--yellow-4);
+  --color-brand-5: var(--yellow-5);
+  --color-brand-6: var(--yellow-6);
+  --color-brand-7: var(--yellow-7);
+  --color-brand-8: var(--yellow-8);
+  --color-brand-9: var(--yellow-9);
+  --color-brand-10: var(--yellow-10);
+  --color-brand-11: var(--yellow-11);
+  --color-brand-12: var(--yellow-12);
+
+  --color-canvas: var(--semantic-canvas);
+  --color-surface: var(--semantic-surface);
+  --color-control: var(--semantic-control);
+  --color-control-hover: var(--semantic-control-hover);
+  --color-control-active: var(--semantic-control-active);
+  --color-separator: var(--semantic-separator);
+  --color-border: var(--semantic-border);
+  --color-border-hover: var(--semantic-border-hover);
+  --color-muted: var(--semantic-muted);
+  --color-foreground: var(--semantic-foreground);
+  --color-brand-subtle: var(--semantic-brand-subtle);
+  --color-brand-control: var(--semantic-brand-control);
+  --color-brand-control-hover: var(--semantic-brand-control-hover);
+  --color-brand-control-active: var(--semantic-brand-control-active);
+  --color-brand-border: var(--semantic-brand-border);
+  --color-brand-focus: var(--semantic-brand-focus);
+  --color-brand-solid: var(--semantic-brand-solid);
+  --color-brand-solid-hover: var(--semantic-brand-solid-hover);
+  --color-brand-text: var(--semantic-brand-text);
+  --color-on-brand: var(--semantic-on-brand);
+  --color-inverse: var(--semantic-inverse);
+  --color-inverse-elevated: var(--semantic-inverse-elevated);
+  --color-inverse-foreground: var(--semantic-inverse-foreground);
+  --color-inverse-muted: var(--semantic-inverse-muted);
+  --color-inverse-border: var(--semantic-inverse-border);
+  --color-inverse-brand: var(--semantic-inverse-brand);
+
+  --text-*: initial;
+
+  --text-xs: var(--step--2);
+  --text-sm: var(--step--1);
+  --text-base: var(--step-0);
+  --text-lg: var(--step-1);
+  --text-xl: var(--step-2);
+  --text-2xl: var(--step-3);
+  --text-3xl: var(--step-4);
+  --text-4xl: var(--step-5);
+
+  --text-label: var(--step--2);
+  --text-label--line-height: 1.35;
+  --text-copy: var(--step--1);
+  --text-copy--line-height: 1.65;
+  --text-lead: var(--step-0);
+  --text-lead--line-height: 1.55;
+  --text-title: var(--step-1);
+  --text-title--line-height: 1.2;
+  --text-title--letter-spacing: -0.015em;
+  --text-heading: var(--step-3);
+  --text-heading--line-height: 1.1;
+  --text-heading--letter-spacing: -0.025em;
+  --text-section: var(--step-4);
+  --text-section--line-height: 1.05;
+  --text-section--letter-spacing: -0.03em;
+  --text-display: var(--step-5);
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.04em;
+
+  --container-page: 90rem;
+}
+
+:root {
+  color-scheme: light;
+
+  --semantic-canvas: var(--sand-1);
+  --semantic-surface: var(--sand-2);
+  --semantic-control: var(--sand-3);
+  --semantic-control-hover: var(--sand-4);
+  --semantic-control-active: var(--sand-5);
+  --semantic-separator: var(--sand-6);
+  --semantic-border: var(--sand-7);
+  --semantic-border-hover: var(--sand-8);
+  --semantic-muted: var(--sand-11);
+  --semantic-foreground: var(--sand-12);
+  --semantic-brand-subtle: var(--yellow-2);
+  --semantic-brand-control: var(--yellow-3);
+  --semantic-brand-control-hover: var(--yellow-4);
+  --semantic-brand-control-active: var(--yellow-5);
+  --semantic-brand-border: var(--yellow-7);
+  --semantic-brand-focus: var(--sand-12);
+  --semantic-brand-solid: var(--yellow-9);
+  --semantic-brand-solid-hover: var(--yellow-10);
+  --semantic-brand-text: var(--yellow-11);
+  --semantic-on-brand: var(--sand-12);
+  --semantic-inverse: var(--sand-12);
+  --semantic-inverse-elevated: color-mix(
+    in oklab,
+    var(--sand-12),
+    var(--sand-11) 12%
+  );
+  --semantic-inverse-foreground: var(--sand-2);
+  --semantic-inverse-muted: var(--sand-8);
+  --semantic-inverse-border: color-mix(
+    in oklab,
+    var(--sand-2) 20%,
+    transparent
+  );
+  --semantic-inverse-brand: var(--yellow-9);
+
+  --step--2: clamp(0.7035rem, 0.8072rem + -0.1152vw, 0.7813rem);
+  --step--1: clamp(0.9375rem, 0.9374rem + 0.0003vw, 0.9377rem);
+  --step-0: clamp(1.125rem, 1.0833rem + 0.1852vw, 1.25rem);
+  --step-1: clamp(1.35rem, 1.2446rem + 0.4685vw, 1.6663rem);
+  --step-2: clamp(1.62rem, 1.4196rem + 0.8905vw, 2.2211rem);
+  --step-3: clamp(1.944rem, 1.6051rem + 1.5063vw, 2.9607rem);
+  --step-4: clamp(2.3328rem, 1.7948rem + 2.3909vw, 3.9467rem);
+  --step-5: clamp(2.7994rem, 1.9788rem + 3.6467vw, 5.2609rem);
+}
+
+:root.dark {
+  color-scheme: dark;
+  --semantic-on-brand: var(--sand-1);
+}
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--semantic-foreground);
+  outline-offset: 4px;
+}
+
+.legal-content {
+  text-wrap: pretty;
+}
+
+.legal-content h1,
+.legal-content h2,
+.legal-content h3 {
+  color: var(--semantic-foreground);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.legal-content h1 {
+  font-size: var(--step-4);
+  margin-block-end: 2rem;
+}
+
+.legal-content h2 {
+  font-size: var(--step-2);
+  margin-block: 3rem 1rem;
+}
+
+.legal-content h3 {
+  font-size: var(--step-1);
+  margin-block: 2rem 0.75rem;
+}
+
+.legal-content p,
+.legal-content li {
+  color: var(--semantic-muted);
+  font-size: var(--step--1);
+  line-height: 1.75;
+}
+
+.legal-content p + p,
+.legal-content ul + p,
+.legal-content ol + p {
+  margin-block-start: 1rem;
+}
+
+.legal-content ul,
+.legal-content ol {
+  margin-block: 1rem;
+  padding-inline-start: 1.5rem;
+}
+
+.legal-content ul {
+  list-style: disc;
+}
+
+.legal-content ol {
+  list-style: decimal;
+}
+
+.legal-content a {
+  color: var(--semantic-foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--semantic-brand-text);
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 0.2em;
+}
+
+@media (forced-colors: active) {
+  :where(a, button, input, select, textarea, summary):focus-visible {
+    outline-color: Highlight;
+  }
+}

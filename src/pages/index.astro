@@ -1,0 +1,368 @@
+---
+import { Image } from "astro:assets";
+import collectionsImage from "../assets/collections-ui-composition@2x.webp";
+import inHouseFinancingImage from "../assets/in-house-financing-ui-composition@2x.webp";
+import paymentProcessingImage from "../assets/payment-processing-ui-composition@2x.webp";
+import thirdPartyFinancingImage from "../assets/third-party-finance-ui-composition@2x.webp";
+import Button from "../components/Button.astro";
+import LogoLink from "../components/LogoLink.astro";
+import Layout from "../layouts/Layout.astro";
+
+const partnershipDetails = [
+  "Our integration team works with your business and technical teams to map the customer journey, define the operating model, and connect financing to the systems that support it.",
+  "Because Lemur already supports the core payment and financing functions, our engineers can focus on the workflows and integrations unique to your business.",
+  "After launch, we stay involved to resolve operational friction and refine the program as your needs change.",
+];
+
+const partnershipSteps = [
+  {
+    number: "01",
+    title: "Understand the business",
+    body: "We learn how customers buy, how payments move, where financing belongs, and which teams and systems need the resulting data.",
+  },
+  {
+    number: "02",
+    title: "Design the program",
+    body: "Together, we specify the payment terms, agreements, servicing steps, reporting, and customer messages the program requires.",
+  },
+  {
+    number: "03",
+    title: "Build into your systems",
+    body: "We connect the financing experience to your checkout, CRM, ledger, reporting tools, and other systems of record.",
+  },
+  {
+    number: "04",
+    title: "Launch and improve",
+    body: "We test the full workflow, launch it with your team, and refine it using customer and operational feedback.",
+  },
+];
+
+const capabilities = [
+  {
+    title: "Payment processing",
+    body: "Process ACH, debit-card, and credit-card payments through a flow connected to your systems and reporting.",
+    image: paymentProcessingImage,
+    imageAlt: "Payment form with card, ACH, and saved payment options.",
+  },
+  {
+    title: "In-house financing",
+    body: "Support customer payment plans with agreements, down payments, stored payment methods, schedules, servicing, reporting, and collections.",
+    image: inHouseFinancingImage,
+    imageAlt:
+      "Payment plan dashboard showing scheduled installments and collection progress.",
+  },
+  {
+    title: "Third-party financing",
+    body: "Connect eligible customers to a third-party lender and return application and funding status to your workflow.",
+    image: thirdPartyFinancingImage,
+    imageAlt:
+      "Third-party financing application showing approval and funding status.",
+  },
+  {
+    title: "Automated collections",
+    body: "Automate configured payment reminders and follow-up, with collections activity reflected in your reporting.",
+    image: collectionsImage,
+    imageAlt:
+      "Collections queue showing scheduled reminders and recovered payments.",
+  },
+];
+
+const companies = [
+  "Fiserv",
+  "Credit Karma",
+  "MoneyLion",
+  "Innovation Refunds",
+  "Dow Jones",
+];
+
+const description =
+  "Lemur designs and connects payment, financing, servicing, and collections infrastructure to fit your customer journey and existing systems.";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.lemurfinance.com/#website",
+      name: "Lemur Finance",
+      url: "https://www.lemurfinance.com/",
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.lemurfinance.com/#organization",
+      name: "Lemur Finance, LLC",
+      url: "https://www.lemurfinance.com/",
+      logo: "https://www.lemurfinance.com/logo.svg",
+    },
+  ],
+};
+---
+
+<Layout title="Payments, Lending, and Collections Infrastructure" {description}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  />
+
+  <header class="border-separator bg-canvas text-foreground border-b">
+    <nav
+      class="max-w-page mx-auto flex w-full items-center justify-between px-5 py-5 sm:px-8 lg:px-14 lg:py-6"
+      aria-label="Primary navigation"
+    >
+      <LogoLink />
+
+      <Button href="/contact/" size="compact"> Discuss a partnership </Button>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="bg-canvas text-foreground">
+      <section
+        class="max-w-page mx-auto flex w-full flex-col gap-10 px-5 py-16 sm:px-8 sm:py-20 lg:gap-12 lg:px-14 lg:py-24"
+        aria-labelledby="hero-heading"
+      >
+        <h1
+          id="hero-heading"
+          class="text-display max-w-6xl font-bold text-balance"
+        >
+          Financing built into the way your business works.
+        </h1>
+
+        <div
+          class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
+        >
+          <p class="text-lead text-muted max-w-2xl">
+            Lemur's integration team works with you to design, connect, and
+            launch a financing program across your customer journey and existing
+            systems. Our payment, financing, servicing, and collections
+            technology provides the foundation; our engineers make it fit your
+            operation.
+          </p>
+
+          <Button href="/contact/" class="md:shrink-0">
+            Discuss a partnership
+          </Button>
+        </div>
+      </section>
+
+      <div class="border-separator border-t">
+        <section
+          class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 py-20 sm:px-8 lg:px-14 lg:py-40"
+          aria-labelledby="technology-partnership-heading"
+        >
+          <div class="flex flex-col gap-6 md:flex-row">
+            <h2
+              id="technology-partnership-heading"
+              class="text-section max-w-4xl font-bold text-balance"
+            >
+              Bring us your workflow. We'll build around it.
+            </h2>
+
+            <div>
+              <p class="text-lead text-foreground mb-2 max-w-3xl font-medium">
+                Your sales process, customer agreements, and back-office systems
+                already work together. Your financing program should work with
+                them, too.
+              </p>
+              {
+                partnershipDetails.map((detail) => (
+                  <p class="text-copy text-muted">{detail}</p>
+                ))
+              }
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section
+        id="how-we-partner"
+        class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 pb-20 sm:px-8 lg:px-14 lg:py-40"
+        aria-labelledby="how-we-partner-heading"
+      >
+        <div class="flex flex-col gap-6">
+          <h2
+            id="how-we-partner-heading"
+            class="text-section max-w-5xl font-bold text-balance"
+          >
+            From working session to launch—and beyond.
+          </h2>
+        </div>
+
+        <ol
+          class="border-separator grid border-t border-l md:grid-cols-2 xl:grid-cols-4"
+        >
+          {
+            partnershipSteps.map((step) => (
+              <li class="border-separator flex min-h-64 flex-col gap-10 border-r border-b p-6 sm:p-7">
+                <span class="text-label text-brand-text font-medium">
+                  {step.number}
+                </span>
+                <div class="flex flex-col gap-3">
+                  <h3 class="text-lg font-semibold tracking-tight">
+                    {step.title}
+                  </h3>
+                  <p class="text-copy text-muted">{step.body}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+    </div>
+
+    <section
+      id="capabilities"
+      class="bg-inverse text-inverse-foreground"
+      aria-labelledby="capabilities-heading"
+    >
+      <div
+        class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 py-20 sm:px-8 lg:px-14 lg:py-24"
+      >
+        <div class="flex flex-col gap-6">
+          <h2
+            id="capabilities-heading"
+            class="text-section max-w-5xl font-bold text-balance"
+          >
+            The capabilities we configure and connect.
+          </h2>
+        </div>
+
+        <div
+          class="border-inverse-border grid border-t border-l lg:grid-cols-2"
+        >
+          {
+            capabilities.map((capability) => (
+              <article class="border-inverse-border flex min-w-0 flex-col border-r border-b p-6 sm:p-8 lg:p-10">
+                <div class="flex flex-col gap-3">
+                  <h3 class="text-title font-semibold">{capability.title}</h3>
+                  <p class="text-copy text-inverse-muted max-w-xl">
+                    {capability.body}
+                  </p>
+                </div>
+
+                <Image
+                  src={capability.image}
+                  alt={capability.imageAlt}
+                  width={580}
+                  layout="constrained"
+                  sizes="(min-width: 1440px) 580px, (min-width: 1024px) calc(50vw - 136px), (min-width: 640px) calc(100vw - 128px), calc(100vw - 88px)"
+                  loading="lazy"
+                  decoding="async"
+                  class="mt-10 h-auto w-full"
+                />
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="team"
+      class="bg-surface text-foreground"
+      aria-labelledby="team-heading"
+    >
+      <div
+        class="max-w-page mx-auto grid w-full gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-14 lg:py-24"
+      >
+        <div class="flex flex-col gap-6">
+          <h2 id="team-heading" class="text-heading font-bold text-balance">
+            Financial technology experience, applied directly to your business.
+          </h2>
+        </div>
+
+        <div class="flex flex-col gap-6 lg:pt-10">
+          <p class="text-copy text-muted">
+            Lemur's founders have built payment, lending, data, and
+            customer-operations systems for companies including Fiserv, Credit
+            Karma, MoneyLion, Innovation Refunds, and Dow Jones.
+          </p>
+          <p class="text-copy text-muted">
+            They started Lemur to bring that experience directly to high-ticket
+            service businesses that need a financing program built around their
+            operation.
+          </p>
+          <ul
+            class="flex flex-wrap gap-x-7 gap-y-3 pt-2"
+            aria-label="Previously built for"
+          >
+            {
+              companies.map((company) => (
+                <li class="text-label text-muted font-medium uppercase">
+                  {company}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      class="bg-brand-solid text-on-brand"
+      aria-labelledby="contact-heading"
+    >
+      <div
+        class="max-w-page mx-auto flex w-full flex-col gap-9 px-5 py-20 sm:px-8 lg:px-14 lg:py-28"
+      >
+        <h2
+          id="contact-heading"
+          class="text-section max-w-5xl font-bold text-balance"
+        >
+          Let's build your financing program.
+        </h2>
+
+        <div
+          class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
+        >
+          <p class="text-copy max-w-2xl">
+            Show us how your customers buy and how your systems work. We'll
+            design the integration with your team and build it for launch.
+          </p>
+          <Button href="/contact/" variant="inverse">
+            Discuss a partnership
+          </Button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-canvas text-foreground">
+    <div
+      class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 pt-12 pb-6 sm:px-8 lg:px-14"
+    >
+      <div
+        class="text-label text-muted flex flex-col gap-6 font-medium uppercase md:flex-row md:items-center md:justify-between"
+      >
+        <LogoLink size="footer" class="" />
+        <nav
+          class="flex flex-wrap gap-x-8 gap-y-3"
+          aria-label="Footer navigation"
+        >
+          <a
+            class="hover:text-foreground transition-colors"
+            href="#how-we-partner">How we partner</a
+          >
+          <a
+            class="hover:text-foreground transition-colors"
+            href="#capabilities">Capabilities</a
+          >
+          <a class="hover:text-foreground transition-colors" href="#team"
+            >Team</a
+          >
+          <a class="hover:text-foreground transition-colors" href="/contact/">
+            Contact
+          </a>
+          <a class="hover:text-foreground transition-colors" href="/terms/"
+            >Terms</a
+          >
+          <a class="hover:text-foreground transition-colors" href="/privacy/"
+            >Privacy</a
+          >
+        </nav>
+      </div>
+    </div>
+  </footer>
+</Layout>

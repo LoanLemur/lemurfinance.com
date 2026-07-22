@@ -1,0 +1,108 @@
+---
+import { Font } from "astro:assets";
+import LogoLink from "../components/LogoLink.astro";
+import "../styles/global.css";
+
+const {
+  title: pageTitle,
+  description,
+  document,
+  frontmatter = {},
+} = Astro.props;
+const title = pageTitle ?? frontmatter.title;
+const pageDescription = description ?? frontmatter.description;
+const isDocument = document ?? frontmatter.document ?? false;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      content="#fdfdfc"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#111110"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ? `Lemur · ${title}` : "Lemur"}</title>
+    {pageDescription && <meta name="description" content={pageDescription} />}
+    <meta property="og:title" content={title ?? "Lemur"} />
+    {
+      pageDescription && (
+        <meta property="og:description" content={pageDescription} />
+      )
+    }
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lemur Finance" />
+    <Font cssVariable="--font-plus-jakarta-sans" />
+    <script is:inline>
+      (() => {
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+        const applyTheme = () => {
+          const theme = localStorage.getItem("theme");
+          const dark =
+            theme === "dark" || (theme === null && systemTheme.matches);
+          document.documentElement.classList.toggle("dark", dark);
+
+          let themeColor = document.querySelector(
+            'meta[name="theme-color"]:not([media])',
+          );
+          if (!themeColor) {
+            themeColor = document.createElement("meta");
+            themeColor.name = "theme-color";
+            document.head.prepend(themeColor);
+          }
+          themeColor.content = dark ? "#111110" : "#fdfdfc";
+        };
+
+        applyTheme();
+        systemTheme.addEventListener("change", () => {
+          if (localStorage.getItem("theme") === null) applyTheme();
+        });
+      })();
+    </script>
+    <slot name="head" />
+  </head>
+  <body class="bg-canvas text-foreground font-sans antialiased">
+    <a
+      href="#main"
+      class="bg-brand-solid text-on-brand sr-only z-50 px-4 py-3 text-sm font-semibold focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
+    >
+      Skip to main content
+    </a>
+    {
+      isDocument ? (
+        <>
+          <header class="border-separator border-b">
+            <div class="max-w-page mx-auto flex w-full px-5 py-5 sm:px-8 lg:px-14 lg:py-6">
+              <LogoLink />
+            </div>
+          </header>
+          <main
+            id="main"
+            tabindex="-1"
+            class="max-w-page mx-auto w-full px-5 py-16 sm:px-8 lg:px-14 lg:py-20"
+          >
+            <article class="legal-content max-w-4xl">
+              <slot />
+            </article>
+          </main>
+        </>
+      ) : (
+        <slot />
+      )
+    }
+  </body>
+</html>

@@ -1,0 +1,33 @@
+---
+interface Props {
+  size?: "header" | "footer";
+  class?: string;
+}
+
+const { size = "header", class: className } = Astro.props;
+const imageSize = size === "footer" ? "h-8 sm:h-10" : "h-10";
+---
+
+<a
+  href="/"
+  aria-label="Lemur home"
+  class:list={[
+    "focus-visible:outline-brand-focus focus-visible:outline-2 focus-visible:outline-offset-4",
+    className,
+  ]}
+>
+  <img
+    src="/logo.svg"
+    alt=""
+    width="225"
+    height="72"
+    class:list={[imageSize, "w-auto dark:hidden"]}
+  />
+  <img
+    src="/logo-white.svg"
+    alt=""
+    width="150"
+    height="48"
+    class:list={[imageSize, "hidden w-auto dark:block"]}
+  />
+</a>
