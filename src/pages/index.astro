@@ -8,14 +8,6 @@ import Button from "../components/Button.astro";
 import LogoLink from "../components/LogoLink.astro";
 import Layout from "../layouts/Layout.astro";
 
-const tickerItems = [
-  "Payment processing",
-  "In-house financing",
-  "Third-party financing",
-  "Automated collections",
-  "Servicing & reporting",
-];
-
 const partnershipDetails = [
   "Our integration team works with your business and technical teams to map the customer journey, define the operating model, and connect financing to the systems that support it.",
   "Because Lemur already supports the core payment and financing functions, our engineers can focus on the workflows and integrations unique to your business.",
@@ -47,14 +39,12 @@ const partnershipSteps = [
 
 const capabilities = [
   {
-    letter: "A",
     title: "Payment processing",
     body: "Process ACH, debit-card, and credit-card payments through a flow connected to your systems and reporting.",
     image: paymentProcessingImage,
     imageAlt: "Payment form with card, ACH, and saved payment options.",
   },
   {
-    letter: "B",
     title: "In-house financing",
     body: "Support customer payment plans with agreements, down payments, stored payment methods, schedules, servicing, reporting, and collections.",
     image: inHouseFinancingImage,
@@ -62,7 +52,6 @@ const capabilities = [
       "Payment plan dashboard showing scheduled installments and collection progress.",
   },
   {
-    letter: "C",
     title: "Third-party financing",
     body: "Connect eligible customers to a third-party lender and return application and funding status to your workflow.",
     image: thirdPartyFinancingImage,
@@ -70,7 +59,6 @@ const capabilities = [
       "Third-party financing application showing approval and funding status.",
   },
   {
-    letter: "D",
     title: "Automated collections",
     body: "Automate configured payment reminders and follow-up, with collections activity reflected in your reporting.",
     image: collectionsImage,
@@ -158,71 +146,41 @@ const structuredData = {
         </div>
       </section>
 
-      <aside
-        class="border-separator border-y"
-        aria-label="Capabilities overview"
-      >
-        <div
-          class="max-w-page mx-auto flex w-full gap-8 overflow-x-auto px-5 py-4 sm:px-8 lg:justify-between lg:px-14"
+      <div class="border-separator border-t">
+        <section
+          class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 py-20 sm:px-8 lg:px-14 lg:py-40"
+          aria-labelledby="technology-partnership-heading"
         >
-          {
-            tickerItems.map((item, index) => (
-              <div class="flex shrink-0 items-center gap-8">
-                <span class="text-label text-muted font-medium uppercase">
-                  {item}
-                </span>
-                {index < tickerItems.length - 1 && (
-                  <span class="text-brand-text" aria-hidden="true">
-                    ●
-                  </span>
-                )}
-              </div>
-            ))
-          }
-        </div>
-      </aside>
+          <div class="flex flex-col gap-6 md:flex-row">
+            <h2
+              id="technology-partnership-heading"
+              class="text-section max-w-4xl font-bold text-balance"
+            >
+              Bring us your workflow. We'll build around it.
+            </h2>
 
-      <section
-        class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 py-20 sm:px-8 lg:px-14 lg:py-24"
-        aria-labelledby="technology-partnership-heading"
-      >
-        <div class="flex flex-col gap-6">
-          <p class="text-label text-brand-text font-medium uppercase">
-            Technology partnership
-          </p>
-          <h2
-            id="technology-partnership-heading"
-            class="text-section max-w-4xl font-bold text-balance"
-          >
-            Bring us your workflow. We'll build around it.
-          </h2>
-          <p class="text-lead text-foreground max-w-3xl">
-            Your sales process, customer agreements, and back-office systems
-            already work together. Your financing program should work with them,
-            too.
-          </p>
-        </div>
-
-        <div class="border-separator grid border-t md:grid-cols-3">
-          {
-            partnershipDetails.map((detail) => (
-              <p class="border-separator text-copy text-muted border-b py-6 last:border-b-0 md:border-b-0 md:border-l md:px-8 md:first:border-l-0 md:first:pl-0 md:last:pr-0">
-                {detail}
+            <div>
+              <p class="text-lead text-foreground mb-2 max-w-3xl font-medium">
+                Your sales process, customer agreements, and back-office systems
+                already work together. Your financing program should work with
+                them, too.
               </p>
-            ))
-          }
-        </div>
-      </section>
+              {
+                partnershipDetails.map((detail) => (
+                  <p class="text-copy text-muted">{detail}</p>
+                ))
+              }
+            </div>
+          </div>
+        </section>
+      </div>
 
       <section
         id="how-we-partner"
-        class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 pb-20 sm:px-8 lg:px-14 lg:pb-24"
+        class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 pb-20 sm:px-8 lg:px-14 lg:py-40"
         aria-labelledby="how-we-partner-heading"
       >
         <div class="flex flex-col gap-6">
-          <p class="text-label text-brand-text font-medium uppercase">
-            How we partner
-          </p>
           <h2
             id="how-we-partner-heading"
             class="text-section max-w-5xl font-bold text-balance"
@@ -262,9 +220,6 @@ const structuredData = {
         class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 py-20 sm:px-8 lg:px-14 lg:py-24"
       >
         <div class="flex flex-col gap-6">
-          <p class="text-label text-inverse-brand font-medium uppercase">
-            The financing layer
-          </p>
           <h2
             id="capabilities-heading"
             class="text-section max-w-5xl font-bold text-balance"
@@ -280,9 +235,6 @@ const structuredData = {
             capabilities.map((capability) => (
               <article class="border-inverse-border flex min-w-0 flex-col border-r border-b p-6 sm:p-8 lg:p-10">
                 <div class="flex flex-col gap-3">
-                  <p class="text-label text-inverse-brand font-semibold">
-                    {capability.letter}
-                  </p>
                   <h3 class="text-title font-semibold">{capability.title}</h3>
                   <p class="text-copy text-inverse-muted max-w-xl">
                     {capability.body}
@@ -315,7 +267,6 @@ const structuredData = {
         class="max-w-page mx-auto grid w-full gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-14 lg:py-24"
       >
         <div class="flex flex-col gap-6">
-          <p class="text-label text-brand-text font-medium uppercase">Team</p>
           <h2 id="team-heading" class="text-heading font-bold text-balance">
             Financial technology experience, applied directly to your business.
           </h2>
@@ -385,7 +336,7 @@ const structuredData = {
       <div
         class="text-label text-muted flex flex-col gap-6 font-medium uppercase md:flex-row md:items-center md:justify-between"
       >
-        <p>&copy; 2026 Lemur Finance</p>
+        <LogoLink size="footer" class="" />
         <nav
           class="flex flex-wrap gap-x-8 gap-y-3"
           aria-label="Footer navigation"
@@ -413,8 +364,6 @@ const structuredData = {
           >
         </nav>
       </div>
-
-      <LogoLink size="footer" class="self-center" />
     </div>
   </footer>
 </Layout>

@@ -29,7 +29,7 @@ const Element = href !== undefined ? "a" : "button";
   href={href}
   type={href === undefined ? (type ?? "button") : undefined}
   class:list={[
-    "text-label inline-flex items-center justify-center text-center font-semibold capitalize transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 motion-reduce:transition-none",
+    "inline-flex items-center justify-center text-center text-sm font-semibold tracking-tight transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 motion-reduce:transition-none",
     variant === "primary"
       ? "bg-brand-solid text-on-brand hover:bg-brand-solid-hover focus-visible:outline-brand-focus"
       : "bg-inverse text-inverse-foreground hover:bg-inverse-elevated focus-visible:outline-on-brand",
