@@ -1,0 +1,41 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type SharedProps = {
+  variant?: "primary" | "inverse";
+  size?: "default" | "compact";
+  class?: string;
+};
+
+type Props =
+  | (SharedProps &
+      Omit<HTMLAttributes<"a">, "class" | "href"> & { href: string })
+  | (SharedProps &
+      Omit<HTMLAttributes<"button">, "class"> & { href?: undefined });
+
+const {
+  href,
+  variant = "primary",
+  size = "default",
+  class: className,
+  type,
+  ...attributes
+} = Astro.props;
+const Element = href !== undefined ? "a" : "button";
+---
+
+<Element
+  {...attributes}
+  href={href}
+  type={href === undefined ? (type ?? "button") : undefined}
+  class:list={[
+    "text-label inline-flex items-center justify-center text-center font-semibold capitalize transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 motion-reduce:transition-none",
+    variant === "primary"
+      ? "bg-brand-solid text-on-brand hover:bg-brand-solid-hover focus-visible:outline-brand-focus"
+      : "bg-inverse text-inverse-foreground hover:bg-inverse-elevated focus-visible:outline-on-brand",
+    size === "compact" ? "px-4 py-3 sm:px-5" : "px-6 py-4",
+    className,
+  ]}
+>
+  <slot />
+</Element>

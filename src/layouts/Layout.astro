@@ -1,5 +1,6 @@
 ---
 import { Font } from "astro:assets";
+import LogoLink from "../components/LogoLink.astro";
 import "../styles/global.css";
 
 const {
@@ -75,33 +76,18 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <slot name="head" />
   </head>
   <body class="bg-canvas text-foreground font-sans antialiased">
+    <a
+      href="#main"
+      class="bg-brand-solid text-on-brand sr-only z-50 px-4 py-3 text-sm font-semibold focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
+    >
+      Skip to main content
+    </a>
     {
       isDocument ? (
         <>
-          <a
-            href="#main"
-            class="bg-brand-solid text-on-brand sr-only z-50 px-4 py-3 text-sm font-semibold focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
-          >
-            Skip to main content
-          </a>
           <header class="border-separator border-b">
             <div class="max-w-page mx-auto flex w-full px-5 py-5 sm:px-8 lg:px-14 lg:py-6">
-              <a href="/" aria-label="Lemur home">
-                <img
-                  src="/logo.svg"
-                  alt=""
-                  width="225"
-                  height="72"
-                  class="h-10 w-auto dark:hidden"
-                />
-                <img
-                  src="/logo-white.svg"
-                  alt=""
-                  width="150"
-                  height="48"
-                  class="hidden h-10 w-auto dark:block"
-                />
-              </a>
+              <LogoLink />
             </div>
           </header>
           <main

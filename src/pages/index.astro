@@ -4,6 +4,8 @@ import collectionsImage from "../assets/collections-ui-composition@2x.webp";
 import inHouseFinancingImage from "../assets/in-house-financing-ui-composition@2x.webp";
 import paymentProcessingImage from "../assets/payment-processing-ui-composition@2x.webp";
 import thirdPartyFinancingImage from "../assets/third-party-finance-ui-composition@2x.webp";
+import Button from "../components/Button.astro";
+import LogoLink from "../components/LogoLink.astro";
 import Layout from "../layouts/Layout.astro";
 
 const tickerItems = [
@@ -114,45 +116,15 @@ const structuredData = {
     type="application/ld+json"
     set:html={JSON.stringify(structuredData)}
   />
-  <a
-    href="#main"
-    class="bg-brand-solid text-on-brand sr-only z-50 px-4 py-3 text-sm font-semibold focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
-  >
-    Skip to content
-  </a>
 
   <header class="border-separator bg-canvas text-foreground border-b">
     <nav
       class="max-w-page mx-auto flex w-full items-center justify-between px-5 py-5 sm:px-8 lg:px-14 lg:py-6"
       aria-label="Primary navigation"
     >
-      <a
-        href="/"
-        aria-label="Lemur home"
-        class="focus-visible:outline-brand-focus focus-visible:outline-2 focus-visible:outline-offset-4"
-      >
-        <img
-          src="/logo.svg"
-          alt=""
-          width="225"
-          height="72"
-          class="h-10 w-auto dark:hidden"
-        />
-        <img
-          src="/logo-white.svg"
-          alt=""
-          width="150"
-          height="48"
-          class="hidden h-10 w-auto dark:block"
-        />
-      </a>
+      <LogoLink />
 
-      <a
-        href="#contact"
-        class="bg-brand-solid text-label text-on-brand hover:bg-brand-solid-hover focus-visible:outline-brand-focus px-4 py-3 font-semibold uppercase transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 motion-reduce:transition-none sm:px-5"
-      >
-        Discuss a partnership
-      </a>
+      <Button href="#contact" size="compact"> Discuss a partnership </Button>
     </nav>
   </header>
 
@@ -180,12 +152,9 @@ const structuredData = {
             operation.
           </p>
 
-          <a
-            href="#contact"
-            class="bg-brand-solid text-label text-on-brand hover:bg-brand-solid-hover focus-visible:outline-brand-focus px-6 py-4 text-center font-semibold uppercase transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 motion-reduce:transition-none md:shrink-0"
-          >
+          <Button href="#contact" class="md:shrink-0">
             Discuss a partnership
-          </a>
+          </Button>
         </div>
       </section>
 
@@ -401,12 +370,9 @@ const structuredData = {
             Show us how your customers buy and how your systems work. We'll
             design the integration with your team and build it for launch.
           </p>
-          <a
-            href="mailto:support@lemurfinance.com"
-            class="bg-inverse text-label text-inverse-foreground hover:bg-inverse-elevated focus-visible:outline-on-brand px-7 py-4 text-center font-semibold uppercase transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 motion-reduce:transition-none"
-          >
+          <Button href="mailto:support@lemurfinance.com" variant="inverse">
             Discuss a partnership
-          </a>
+          </Button>
         </div>
       </div>
     </section>
@@ -448,26 +414,7 @@ const structuredData = {
         </nav>
       </div>
 
-      <a
-        href="/"
-        aria-label="Lemur home"
-        class="focus-visible:outline-brand-focus self-center focus-visible:outline-2 focus-visible:outline-offset-4"
-      >
-        <img
-          src="/logo.svg"
-          alt=""
-          width="225"
-          height="72"
-          class="h-16 w-auto sm:h-18 dark:hidden"
-        />
-        <img
-          src="/logo-white.svg"
-          alt=""
-          width="150"
-          height="48"
-          class="hidden h-16 w-auto sm:h-18 dark:block"
-        />
-      </a>
+      <LogoLink size="footer" class="self-center" />
     </div>
   </footer>
 </Layout>
