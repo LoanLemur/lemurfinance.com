@@ -1,6 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import collectionsImage from "../assets/collections-ui-composition@2x.webp";
+import founderOneImage from "../assets/team/founder-1.webp";
+import founderTwoImage from "../assets/team/founder-2.webp";
+import founderThreeImage from "../assets/team/founder-3.webp";
 import inHouseFinancingImage from "../assets/in-house-financing-ui-composition@2x.webp";
 import paymentProcessingImage from "../assets/payment-processing-ui-composition@2x.webp";
 import thirdPartyFinancingImage from "../assets/third-party-finance-ui-composition@2x.webp";
@@ -104,6 +107,8 @@ const companies = [
     class: "h-8 sm:h-9 lg:h-14",
   },
 ];
+
+const founderImages = [founderOneImage, founderTwoImage, founderThreeImage];
 
 const description =
   "Lemur designs and connects payment, financing, servicing, and collections infrastructure to fit your customer journey and existing systems.";
@@ -314,6 +319,28 @@ const structuredData = {
             operation.
           </p>
         </div>
+
+        <ul
+          class="mx-auto grid w-full max-w-3xl grid-cols-3 gap-4 sm:gap-8 lg:col-span-2 lg:gap-12"
+          aria-label="Lemur founders"
+        >
+          {
+            founderImages.map((image) => (
+              <li class="aspect-square min-w-0 overflow-hidden rounded-full">
+                <Image
+                  src={image}
+                  alt="Lemur co-founder"
+                  width={400}
+                  layout="constrained"
+                  sizes="(min-width: 1024px) 224px, (min-width: 640px) calc((100vw - 128px) / 3), calc((100vw - 72px) / 3)"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-full w-full object-cover"
+                />
+              </li>
+            ))
+          }
+        </ul>
 
         <ul
           class="grid grid-cols-[0.65fr_1.4fr_1.25fr_1fr_0.7fr] items-center gap-2 pt-4 sm:gap-6 lg:col-span-2 lg:grid-cols-5 lg:gap-10 lg:pt-2"
