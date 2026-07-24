@@ -575,7 +575,7 @@ Implementation and delivery:
 - Start from the repository default branch and create \`${branch}\` without reusing or replacing an existing remote branch.
 - Inspect the relevant code, reproduce when practical, make a focused fix, and run the narrowest meaningful tests plus any broader checks warranted by the change.
 - Review the final diff for unrelated or sensitive changes. Commit only the intended fix.
-- Push \`${branch}\` without force and create a PR targeting \`main\` with \`gh pr create\`. Include a concise Summary and Testing section and the exact closing line \`Fixes #${event.issueNumber}\`.
+- Push \`${branch}\` without force and create a PR targeting \`main\` with \`gh pr create\`. Include a concise Summary and Testing section, the current Amp thread URL, and the exact closing line \`Fixes #${event.issueNumber}\`.
 - Finish by reporting the PR URL and validation results, or the reason no PR was opened. Never merge the PR.`;
 }
 
