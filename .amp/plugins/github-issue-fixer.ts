@@ -202,11 +202,13 @@ async function handleWebhook(
   }
 
   let thread: PluginThread;
+  let createdThread = false;
   if (claim.kind === "started" && claim.record.threadID) {
     thread = amp.threads.get(claim.record.threadID);
   } else if (claim.kind === "claimed") {
     throwIfAborted(ctx.signal);
     thread = await agent.createThread({ executor: "orb" });
+    createdThread = true;
     await recordThread(
       config,
       githubEvent.issueKey,
@@ -231,7 +233,7 @@ async function handleWebhook(
   }
 
   const promptMarker = `Automation request ID: ${githubEvent.issueKey}`;
-  if (!(await threadContainsMarker(thread, promptMarker))) {
+  if (createdThread || !(await threadContainsMarker(thread, promptMarker))) {
     await thread.append([
       {
         type: "user-message",
