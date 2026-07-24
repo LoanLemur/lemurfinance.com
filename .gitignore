@@ -4,7 +4,9 @@ dist/
 .astro/
 
 # local agent runtime files
-.amp/
+.amp/*
+!.amp/plugins/
+!.amp/plugins/**
 
 # dependencies
 node_modules/
