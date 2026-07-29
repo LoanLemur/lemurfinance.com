@@ -1,0 +1,91 @@
+title: Automated collections
+summary: >-
+  Automate configured payment reminders and follow-up, with collections
+  activity reflected in your reporting.
+order: 4
+featuredOnHome: true
+draft: false
+image: ../../assets/collections-ui-composition@2x.webp
+imageAlt: >-
+  Collections queue showing scheduled reminders and recovered payments.
+
+seo:
+  title: Automated Payment Collections
+  description: >-
+    Configure payment reminders and follow-up around your servicing workflow,
+    with collections activity reflected in your reporting.
+
+hero:
+  eyebrow: Automated collections
+  heading: Keep configured payment follow-up moving.
+  introduction: >-
+    Lemur automates configured payment reminders and follow-up while keeping
+    collections activity connected to the reporting your team uses.
+
+details:
+  eyebrow: What it supports
+  heading: Consistent follow-up without separating collections from the account.
+  introduction: >-
+    Configure the routine parts of payment follow-up while preserving the
+    information your team needs to understand what happened.
+  items:
+    - title: Payment reminders
+      body: >-
+        Schedule configured customer reminders around the payment obligations
+        your program is already managing.
+    - title: Follow-up activity
+      body: >-
+        Continue configured outreach when a payment needs attention instead of
+        relying on disconnected manual steps.
+    - title: Collections reporting
+      body: >-
+        Reflect collections activity in reporting so payment follow-up remains
+        visible alongside the rest of the account.
+
+workflow:
+  eyebrow: How it connects
+  heading: Follow-up works better with the context of the payment behind it.
+  introduction: >-
+    We connect reminders and collections activity to the payment or financing
+    workflow that created the obligation in the first place.
+  items:
+    - title: Timing and messages
+      body: >-
+        Configure when reminders and follow-up occur and how they fit the
+        customer relationship.
+    - title: Payment context
+      body: >-
+        Use the status of the underlying obligation to guide the configured
+        follow-up path.
+    - title: Team visibility
+      body: >-
+        Return collections activity to reporting so the people managing the
+        account can see its current state.
+
+implementation:
+  eyebrow: How we implement it
+  heading: From follow-up rules to a connected collections flow.
+  introduction: >-
+    Lemur's integration team works with your operating model to configure the
+    reminders, follow-up, and reporting the program requires.
+  steps:
+    - title: Define the follow-up path
+      body: >-
+        Map the payment states, timing, messages, and team responsibilities that
+        shape your collections process.
+    - title: Configure the activity
+      body: >-
+        Build reminders and follow-up around those rules and connect them to the
+        underlying payment workflow.
+    - title: Connect and refine
+      body: >-
+        Reflect activity in reporting, test the complete flow, and adjust it as
+        operational needs change.
+
+cta:
+  heading: Build collections follow-up into your payment workflow.
+  body: >-
+    Show us how your team manages payment follow-up today. We'll map where
+    configured automation and connected reporting can support it.
+  label: Discuss a partnership
+  href: /contact/

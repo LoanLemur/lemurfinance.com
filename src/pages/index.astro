@@ -1,12 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import collectionsImage from "../assets/collections-ui-composition@2x.webp";
+import { getCollection } from "astro:content";
 import founderOneImage from "../assets/team/founder-1.webp";
 import founderTwoImage from "../assets/team/founder-2.webp";
 import founderThreeImage from "../assets/team/founder-3.webp";
-import inHouseFinancingImage from "../assets/in-house-financing-ui-composition@2x.webp";
-import paymentProcessingImage from "../assets/payment-processing-ui-composition@2x.webp";
-import thirdPartyFinancingImage from "../assets/third-party-finance-ui-composition@2x.webp";
 import Button from "../components/Button.astro";
 import LogoLink from "../components/LogoLink.astro";
 import Layout from "../layouts/Layout.astro";
@@ -40,35 +37,14 @@ const partnershipSteps = [
   },
 ];
 
-const capabilities = [
-  {
-    title: "Payment processing",
-    body: "Process ACH, debit-card, and credit-card payments through a flow connected to your systems and reporting.",
-    image: paymentProcessingImage,
-    imageAlt: "Payment form with card, ACH, and saved payment options.",
-  },
-  {
-    title: "In-house financing",
-    body: "Support customer payment plans with agreements, down payments, stored payment methods, schedules, servicing, reporting, and collections.",
-    image: inHouseFinancingImage,
-    imageAlt:
-      "Payment plan dashboard showing scheduled installments and collection progress.",
-  },
-  {
-    title: "Third-party financing",
-    body: "Connect eligible customers to a third-party lender and return application and funding status to your workflow.",
-    image: thirdPartyFinancingImage,
-    imageAlt:
-      "Third-party financing application showing approval and funding status.",
-  },
-  {
-    title: "Automated collections",
-    body: "Automate configured payment reminders and follow-up, with collections activity reflected in your reporting.",
-    image: collectionsImage,
-    imageAlt:
-      "Collections queue showing scheduled reminders and recovered payments.",
-  },
-];
+const capabilities = (
+  await getCollection(
+    "capabilities",
+    ({ data }) => !import.meta.env.PROD || !data.draft,
+  )
+)
+  .filter(({ data }) => data.featuredOnHome)
+  .sort((a, b) => a.data.order - b.data.order);
 
 const companies = [
   {
@@ -267,25 +243,38 @@ const structuredData = {
           class="border-inverse-border grid border-t border-l lg:grid-cols-2"
         >
           {
-            capabilities.map((capability) => (
-              <article class="border-inverse-border flex min-w-0 flex-col border-r border-b p-6 sm:p-8 lg:p-10">
-                <div class="flex flex-col gap-3">
-                  <h3 class="text-title font-semibold">{capability.title}</h3>
-                  <p class="text-copy text-inverse-muted max-w-xl">
-                    {capability.body}
-                  </p>
-                </div>
+            capabilities.map(({ id, data }) => (
+              <article class="border-inverse-border group min-w-0 border-r border-b">
+                <a
+                  href={`/capabilities/${id}/`}
+                  class="focus-visible:outline-inverse-foreground flex h-full flex-col p-6 transition-colors hover:bg-white/5 focus-visible:outline-2 focus-visible:-outline-offset-2 sm:p-8 lg:p-10"
+                >
+                  <div class="flex items-start justify-between gap-6">
+                    <div class="flex flex-col gap-3">
+                      <h3 class="text-title font-semibold">{data.title}</h3>
+                      <p class="text-copy text-inverse-muted max-w-xl">
+                        {data.summary}
+                      </p>
+                    </div>
+                    <span
+                      class="text-inverse-brand text-xl transition-transform group-hover:translate-x-1 motion-reduce:transition-none"
+                      aria-hidden="true"
+                    >
+                      →
+                    </span>
+                  </div>
 
-                <Image
-                  src={capability.image}
-                  alt={capability.imageAlt}
-                  width={580}
-                  layout="constrained"
-                  sizes="(min-width: 1440px) 580px, (min-width: 1024px) calc(50vw - 136px), (min-width: 640px) calc(100vw - 128px), calc(100vw - 88px)"
-                  loading="lazy"
-                  decoding="async"
-                  class="mt-10 h-auto w-full"
-                />
+                  <Image
+                    src={data.image}
+                    alt={data.imageAlt}
+                    width={580}
+                    layout="constrained"
+                    sizes="(min-width: 1440px) 580px, (min-width: 1024px) calc(50vw - 136px), (min-width: 640px) calc(100vw - 128px), calc(100vw - 88px)"
+                    loading="lazy"
+                    decoding="async"
+                    class="mt-10 h-auto w-full"
+                  />
+                </a>
               </article>
             ))
           }

@@ -1,0 +1,91 @@
+title: Third-party financing
+summary: >-
+  Connect eligible customers to a third-party lender and return application and
+  funding status to your workflow.
+order: 3
+featuredOnHome: true
+draft: false
+image: ../../assets/third-party-finance-ui-composition@2x.webp
+imageAlt: >-
+  Third-party financing application showing approval and funding status.
+
+seo:
+  title: Third-Party Financing Integrations
+  description: >-
+    Connect eligible customers to a third-party lender while returning
+    application and funding status to your existing workflow.
+
+hero:
+  eyebrow: Third-party financing
+  heading: Connect third-party financing without losing the thread.
+  introduction: >-
+    Lemur connects eligible customers to a third-party lender and returns the
+    application and funding status your teams need to continue the workflow.
+
+details:
+  eyebrow: What it supports
+  heading: A lender handoff that stays connected to your customer journey.
+  introduction: >-
+    Make third-party financing part of a larger operating process instead of a
+    disconnected destination for the customer and your team.
+  items:
+    - title: Eligible customer handoff
+      body: >-
+        Direct the appropriate customers into the lender application from the
+        point where financing belongs in your journey.
+    - title: Application status
+      body: >-
+        Return application progress to your workflow so the next step does not
+        depend on a separate manual check.
+    - title: Funding status
+      body: >-
+        Keep the outcome visible to the teams and systems that need to complete
+        the customer process.
+
+workflow:
+  eyebrow: How it connects
+  heading: Keep the customer, lender, and internal workflow in step.
+  introduction: >-
+    We design the handoff and status path as one connected journey, with clear
+    transitions between your business and the financing provider.
+  items:
+    - title: Customer journey
+      body: >-
+        Introduce the lender application at the right point without making the
+        customer reconstruct the process elsewhere.
+    - title: Lender connection
+      body: >-
+        Define how eligible customers enter the application and which statuses
+        need to return afterward.
+    - title: Internal follow-through
+      body: >-
+        Route application and funding information back to the systems and teams
+        responsible for the next action.
+
+implementation:
+  eyebrow: How we implement it
+  heading: From lender handoff to connected follow-through.
+  introduction: >-
+    Lemur's integration team maps the customer and operational path, then builds
+    the connections needed to carry status through it.
+  steps:
+    - title: Map eligibility and handoff
+      body: >-
+        Define where third-party financing belongs and how eligible customers
+        move from your experience to the lender.
+    - title: Connect the status path
+      body: >-
+        Determine which application and funding updates return, where they go,
+        and what they enable next.
+    - title: Test the full journey
+      body: >-
+        Validate the customer handoff and internal follow-through together
+        before launch.
+
+cta:
+  heading: Connect third-party financing to your customer workflow.
+  body: >-
+    Show us where financing belongs in the journey and what your team needs back
+    from the lender.
+  label: Discuss a partnership
+  href: /contact/

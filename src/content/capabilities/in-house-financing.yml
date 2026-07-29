@@ -1,0 +1,92 @@
+title: In-house financing
+summary: >-
+  Support customer payment plans with agreements, down payments, stored payment
+  methods, schedules, servicing, reporting, and collections.
+order: 2
+featuredOnHome: true
+draft: false
+image: ../../assets/in-house-financing-ui-composition@2x.webp
+imageAlt: >-
+  Payment plan dashboard showing scheduled installments and collection
+  progress.
+
+seo:
+  title: In-House Financing Infrastructure
+  description: >-
+    Build customer payment plans around your business with connected
+    agreements, schedules, servicing, reporting, and collections.
+
+hero:
+  eyebrow: In-house financing
+  heading: Run customer payment plans inside your own operation.
+  introduction: >-
+    Lemur connects agreements, down payments, payment schedules, servicing,
+    reporting, and collections into a financing flow designed for your business.
+
+details:
+  eyebrow: What it supports
+  heading: The payment-plan lifecycle, connected from agreement to collection.
+  introduction: >-
+    Bring the pieces of an in-house financing program into one operating flow
+    rather than managing each stage in isolation.
+  items:
+    - title: Agreements and down payments
+      body: >-
+        Put the customer agreement and initial payment into a clear, configured
+        financing experience.
+    - title: Methods and schedules
+      body: >-
+        Support stored payment methods and scheduled installments for the terms
+        your program offers.
+    - title: Servicing through collections
+      body: >-
+        Keep ongoing servicing, reporting, and collections connected to the
+        original payment plan.
+
+workflow:
+  eyebrow: How it connects
+  heading: Financing should operate as part of the sale—not beside it.
+  introduction: >-
+    We fit the plan experience into the way customers buy and connect the
+    resulting obligations to the teams and systems responsible for them.
+  items:
+    - title: Sales and customer journey
+      body: >-
+        Place the financing option where it supports the purchase and make the
+        resulting terms clear to the customer.
+    - title: Back-office systems
+      body: >-
+        Connect agreements, balances, and payment activity to the systems your
+        team uses to manage the account.
+    - title: Ongoing servicing
+      body: >-
+        Carry the plan from scheduled payments into reporting and collections
+        without losing its operating context.
+
+implementation:
+  eyebrow: How we implement it
+  heading: From financing model to a working program.
+  introduction: >-
+    Lemur's integration team designs the plan lifecycle with your business and
+    technical teams, then connects it to the systems that support it.
+  steps:
+    - title: Define the program
+      body: >-
+        Map the agreements, down payments, schedules, servicing steps, and
+        reporting your operating model requires.
+    - title: Build the lifecycle
+      body: >-
+        Configure the customer experience and connect each stage to the teams
+        and systems responsible for it.
+    - title: Test and launch
+      body: >-
+        Validate the full journey from agreement through ongoing payment
+        activity before putting the program into operation.
+
+cta:
+  heading: Design an in-house financing program around your operation.
+  body: >-
+    Show us how customers buy and how your teams manage payment plans today.
+    We'll map the program with you.
+  label: Discuss a partnership
+  href: /contact/

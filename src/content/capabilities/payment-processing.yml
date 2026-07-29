@@ -1,0 +1,90 @@
+title: Payment processing
+summary: >-
+  Process ACH, debit-card, and credit-card payments through a flow connected
+  to your systems and reporting.
+order: 1
+featuredOnHome: true
+draft: false
+image: ../../assets/payment-processing-ui-composition@2x.webp
+imageAlt: Payment form with card, ACH, and saved payment options.
+
+seo:
+  title: Payment Processing Infrastructure
+  description: >-
+    Connect ACH, debit-card, and credit-card payments to your customer journey,
+    existing systems, and reporting with Lemur Finance.
+
+hero:
+  eyebrow: Payment processing
+  heading: Payment processing that fits the way your business gets paid.
+  introduction: >-
+    Lemur connects ACH, debit-card, and credit-card payments to the customer
+    journey, systems, and reporting your team already relies on.
+
+details:
+  eyebrow: What it supports
+  heading: One connected payment flow across the methods your customers use.
+  introduction: >-
+    Give customers clear ways to pay while keeping each transaction connected
+    to the operating process behind it.
+  items:
+    - title: ACH payments
+      body: >-
+        Make bank-account payments part of the same configured customer and
+        operational flow.
+    - title: Debit and credit cards
+      body: >-
+        Support card payments alongside ACH without creating a separate process
+        for your team.
+    - title: Connected payment records
+      body: >-
+        Return payment activity to the systems and reporting that support the
+        rest of your operation.
+
+workflow:
+  eyebrow: How it connects
+  heading: Payments should move with the rest of the customer journey.
+  introduction: >-
+    We design where payment belongs, what each system needs to know, and how
+    your team follows a transaction from initiation through reporting.
+  items:
+    - title: Customer experience
+      body: >-
+        Present the right payment options at the point in the journey where a
+        customer is ready to pay.
+    - title: Business systems
+      body: >-
+        Connect payment status and transaction details to the tools your teams
+        use to manage customers and work.
+    - title: Operations and reporting
+      body: >-
+        Keep payment activity visible to the people responsible for tracking
+        performance and resolving issues.
+
+implementation:
+  eyebrow: How we implement it
+  heading: From payment requirements to a connected launch.
+  introduction: >-
+    Lemur's integration team works directly with your business and technical
+    teams to configure the payment flow around your operation.
+  steps:
+    - title: Map the payment journey
+      body: >-
+        Define when customers pay, which methods belong in the experience, and
+        which teams and systems depend on the result.
+    - title: Configure and connect
+      body: >-
+        Build the payment flow and connect its data to the appropriate systems
+        of record and reporting.
+    - title: Test the complete flow
+      body: >-
+        Exercise the customer and operational experience together before
+        launch, then refine it as needs change.
+
+cta:
+  heading: Build a payment workflow around your business.
+  body: >-
+    Show us how your customers pay and how your systems work. We'll design the
+    integration with your team.
+  label: Discuss a partnership
+  href: /contact/

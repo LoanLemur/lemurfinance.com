@@ -1,0 +1,358 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Button from "../../components/Button.astro";
+import LogoLink from "../../components/LogoLink.astro";
+import Layout from "../../layouts/Layout.astro";
+
+type Capability = CollectionEntry<"capabilities">;
+
+interface Props {
+  capability: Capability;
+  siblings: Capability[];
+}
+
+export async function getStaticPaths() {
+  const capabilities = (
+    await getCollection(
+      "capabilities",
+      ({ data }) => !import.meta.env.PROD || !data.draft,
+    )
+  ).sort((a, b) => a.data.order - b.data.order);
+
+  return capabilities.map((capability) => ({
+    params: { capability: capability.id },
+    props: {
+      capability,
+      siblings: capabilities.filter(({ id }) => id !== capability.id),
+    },
+  }));
+}
+
+const { capability, siblings } = Astro.props;
+const { data } = capability;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: data.title,
+  description: data.seo.description,
+  serviceType: data.title,
+  url: new URL(`/capabilities/${capability.id}/`, Astro.site),
+  provider: {
+    "@type": "Organization",
+    "@id": "https://www.lemurfinance.com/#organization",
+    name: "Lemur Finance, LLC",
+  },
+};
+---
+
+<Layout title={data.seo.title} description={data.seo.description}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  />
+
+  <header class="border-separator bg-canvas text-foreground border-b">
+    <nav
+      class="max-w-page mx-auto flex w-full items-center justify-between px-5 py-5 sm:px-8 lg:px-14 lg:py-6"
+      aria-label="Primary navigation"
+    >
+      <LogoLink />
+      <Button href="/contact/" size="compact">Discuss a partnership</Button>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section
+      class="bg-canvas text-foreground"
+      aria-labelledby="capability-heading"
+    >
+      <div
+        class="max-w-page mx-auto grid w-full gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[minmax(0,1.4fr)_minmax(18rem,0.6fr)] lg:items-end lg:gap-20 lg:px-14 lg:py-28"
+      >
+        <div class="flex flex-col gap-6">
+          <p class="text-label text-brand-text font-medium uppercase">
+            {data.hero.eyebrow}
+          </p>
+          <h1
+            id="capability-heading"
+            class="text-display max-w-5xl font-bold text-balance"
+          >
+            {data.hero.heading}
+          </h1>
+        </div>
+
+        <div class="flex flex-col items-start gap-8 lg:pb-1">
+          <p class="text-lead text-muted max-w-2xl">
+            {data.hero.introduction}
+          </p>
+          <Button href={data.cta.href}>{data.cta.label}</Button>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="bg-inverse text-inverse-foreground"
+      aria-labelledby="details-heading"
+    >
+      <div
+        class="max-w-page mx-auto flex w-full flex-col px-5 py-20 sm:px-8 lg:px-14 lg:py-28"
+      >
+        <div class="grid gap-6 lg:grid-cols-2 lg:gap-20">
+          <div class="flex flex-col gap-6">
+            <p class="text-label text-inverse-brand font-medium uppercase">
+              {data.details.eyebrow}
+            </p>
+            <h2
+              id="details-heading"
+              class="text-section max-w-4xl font-bold text-balance"
+            >
+              {data.details.heading}
+            </h2>
+          </div>
+          <p class="text-lead text-inverse-muted max-w-2xl lg:pt-9">
+            {data.details.introduction}
+          </p>
+        </div>
+
+        <div
+          class="border-inverse-border mt-14 border sm:mt-16 lg:mt-20 lg:grid lg:grid-cols-[minmax(0,1.55fr)_minmax(20rem,0.45fr)]"
+        >
+          <div
+            class="border-inverse-border flex min-h-72 items-center justify-center overflow-hidden border-b p-5 sm:p-10 lg:min-h-[34rem] lg:border-r lg:border-b-0 lg:p-14"
+          >
+            <Image
+              src={data.image}
+              alt={data.imageAlt}
+              width={1160}
+              layout="constrained"
+              sizes="(min-width: 1440px) 820px, (min-width: 1024px) 60vw, calc(100vw - 82px)"
+              loading="eager"
+              decoding="async"
+              class="h-auto w-full"
+            />
+          </div>
+
+          <ul class="flex flex-col">
+            {
+              data.details.items.map((item) => (
+                <li class="border-inverse-border flex flex-1 items-center border-b p-6 last:border-b-0 sm:p-8">
+                  <div class="flex flex-col gap-3">
+                    <h3 class="text-title font-semibold">{item.title}</h3>
+                    <p class="text-copy text-inverse-muted">{item.body}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="bg-canvas text-foreground"
+      aria-labelledby="workflow-heading"
+    >
+      <div
+        class="max-w-page mx-auto grid w-full gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[minmax(18rem,0.7fr)_minmax(0,1.3fr)] lg:gap-20 lg:px-14 lg:py-32"
+      >
+        <div class="flex flex-col gap-6 lg:sticky lg:top-12 lg:self-start">
+          <p class="text-label text-brand-text font-medium uppercase">
+            {data.workflow.eyebrow}
+          </p>
+          <h2
+            id="workflow-heading"
+            class="text-heading max-w-xl font-bold text-balance"
+          >
+            {data.workflow.heading}
+          </h2>
+          <p class="text-copy text-muted max-w-xl">
+            {data.workflow.introduction}
+          </p>
+        </div>
+
+        <ul class="border-separator border-t">
+          {
+            data.workflow.items.map((item) => (
+              <li class="border-separator grid gap-4 border-b py-8 sm:grid-cols-[minmax(12rem,0.65fr)_minmax(0,1.35fr)] sm:gap-10 sm:py-10">
+                <h3 class="text-title font-semibold">{item.title}</h3>
+                <p class="text-copy text-muted max-w-2xl">{item.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section
+      class="border-separator bg-surface text-foreground border-y"
+      aria-labelledby="implementation-heading"
+    >
+      <div
+        class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 py-20 sm:px-8 lg:px-14 lg:py-28"
+      >
+        <div class="grid gap-6 lg:grid-cols-2 lg:gap-20">
+          <div class="flex flex-col gap-6">
+            <p class="text-label text-brand-text font-medium uppercase">
+              {data.implementation.eyebrow}
+            </p>
+            <h2
+              id="implementation-heading"
+              class="text-section max-w-4xl font-bold text-balance"
+            >
+              {data.implementation.heading}
+            </h2>
+          </div>
+          <p class="text-lead text-muted max-w-2xl lg:pt-9">
+            {data.implementation.introduction}
+          </p>
+        </div>
+
+        <ol class="border-separator grid border-t border-l lg:grid-cols-3">
+          {
+            data.implementation.steps.map((step, index) => (
+              <li class="border-separator flex min-h-64 flex-col justify-between gap-10 border-r border-b p-6 sm:p-8">
+                <span class="text-label text-brand-text font-medium">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div class="flex flex-col gap-3">
+                  <h3 class="text-title font-semibold">{step.title}</h3>
+                  <p class="text-copy text-muted">{step.body}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section
+      class="bg-canvas text-foreground"
+      aria-labelledby="other-capabilities-heading"
+    >
+      <div
+        class="max-w-page mx-auto flex w-full flex-col gap-10 px-5 py-20 sm:px-8 lg:px-14 lg:py-28"
+      >
+        <div
+          class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
+        >
+          <div class="flex flex-col gap-4">
+            <p class="text-label text-brand-text font-medium uppercase">
+              Keep exploring
+            </p>
+            <h2
+              id="other-capabilities-heading"
+              class="text-heading font-bold text-balance"
+            >
+              Other connected capabilities.
+            </h2>
+          </div>
+          <a
+            href="/#capabilities"
+            class="text-label text-muted hover:text-foreground font-medium uppercase transition-colors"
+          >
+            View all capabilities
+          </a>
+        </div>
+
+        <nav aria-label="Other capabilities">
+          <ul
+            class="border-separator flex snap-x snap-mandatory overflow-x-auto border-t border-l lg:grid lg:grid-cols-3 lg:overflow-visible"
+          >
+            {
+              siblings.map(({ id, data: sibling }) => (
+                <li class="border-separator min-w-[82%] snap-start border-r border-b sm:min-w-[48%] lg:min-w-0">
+                  <a
+                    href={`/capabilities/${id}/`}
+                    class="group focus-visible:outline-foreground hover:bg-surface flex h-full min-h-64 flex-col justify-between gap-12 p-6 transition-colors focus-visible:outline-2 focus-visible:-outline-offset-2 sm:p-8"
+                  >
+                    <span class="text-label text-brand-text font-medium uppercase">
+                      Capability
+                    </span>
+                    <div class="flex items-end justify-between gap-6">
+                      <div class="flex max-w-sm flex-col gap-3">
+                        <h3 class="text-title font-semibold">
+                          {sibling.title}
+                        </h3>
+                        <p class="text-copy text-muted">{sibling.summary}</p>
+                      </div>
+                      <span
+                        class="text-brand-text text-xl transition-transform group-hover:translate-x-1 motion-reduce:transition-none"
+                        aria-hidden="true"
+                      >
+                        →
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <section
+      class="bg-brand-solid text-on-brand"
+      aria-labelledby="contact-heading"
+    >
+      <div
+        class="max-w-page mx-auto flex w-full flex-col gap-9 px-5 py-20 sm:px-8 lg:px-14 lg:py-28"
+      >
+        <h2
+          id="contact-heading"
+          class="text-section max-w-5xl font-bold text-balance"
+        >
+          {data.cta.heading}
+        </h2>
+        <div
+          class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
+        >
+          <p class="text-copy max-w-2xl">{data.cta.body}</p>
+          <Button href={data.cta.href} variant="inverse">
+            {data.cta.label}
+          </Button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-canvas text-foreground">
+    <div
+      class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 pt-12 pb-6 sm:px-8 lg:px-14"
+    >
+      <div
+        class="text-label text-muted flex flex-col gap-6 font-medium uppercase md:flex-row md:items-center md:justify-between"
+      >
+        <LogoLink size="footer" />
+        <nav
+          class="flex flex-wrap gap-x-8 gap-y-3"
+          aria-label="Footer navigation"
+        >
+          <a
+            class="hover:text-foreground transition-colors"
+            href="/#how-we-partner">How we partner</a
+          >
+          <a
+            class="hover:text-foreground transition-colors"
+            href="/#capabilities">Capabilities</a
+          >
+          <a class="hover:text-foreground transition-colors" href="/#team">
+            Team
+          </a>
+          <a class="hover:text-foreground transition-colors" href="/contact/">
+            Contact
+          </a>
+          <a class="hover:text-foreground transition-colors" href="/terms/">
+            Terms
+          </a>
+          <a class="hover:text-foreground transition-colors" href="/privacy/">
+            Privacy
+          </a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</Layout>
