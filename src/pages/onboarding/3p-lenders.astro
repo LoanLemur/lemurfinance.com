@@ -1,0 +1,96 @@
+---
+import LogoLink from "../../components/LogoLink.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const description =
+  "Complete the Lemur Finance onboarding form for third-party lender programs.";
+---
+
+<Layout title="Third-Party Lender Onboarding" {description}>
+  <link slot="head" rel="preconnect" href="https://api.leadconnectorhq.com" />
+  <link slot="head" rel="preconnect" href="https://link.msgsndr.com" />
+
+  <header class="border-separator bg-canvas text-foreground border-b">
+    <div
+      class="max-w-page mx-auto flex w-full items-center justify-between px-5 py-5 sm:px-8 lg:px-14 lg:py-6"
+    >
+      <LogoLink />
+      <a
+        href="/"
+        class="text-label text-muted hover:text-foreground font-medium uppercase transition-colors"
+      >
+        Back to home
+      </a>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section
+      class="max-w-page mx-auto flex w-full flex-col gap-6 px-5 py-16 sm:px-8 sm:py-20 lg:px-14 lg:py-24"
+      aria-labelledby="onboarding-heading"
+    >
+      <p class="text-label text-brand-text font-medium uppercase">Onboarding</p>
+      <h1
+        id="onboarding-heading"
+        class="text-section max-w-5xl font-bold text-balance"
+      >
+        Third-party lender onboarding.
+      </h1>
+      <p class="text-lead text-muted max-w-3xl">
+        Tell us about your business, its owners, and your current financing
+        program so our team can prepare your lender application.
+      </p>
+    </section>
+
+    <section
+      class="border-separator border-t"
+      aria-label="Lender onboarding form"
+    >
+      <div
+        class="max-w-page mx-auto w-full px-0 py-8 sm:px-8 lg:px-14 lg:py-12"
+      >
+        <div class="bg-surface relative max-w-5xl">
+          <p
+            class="text-copy text-muted absolute inset-x-0 top-12 text-center"
+            aria-hidden="true"
+          >
+            Loading lender onboarding form…
+          </p>
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/ku9E2uxc7sJfpZkkOSZy"
+            class="relative min-h-[900px] w-full border-0 bg-transparent"
+            id="inline-ku9E2uxc7sJfpZkkOSZy"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            title="Third-Party Lender Onboarding"></iframe>
+          <script is:inline src="https://link.msgsndr.com/js/form_embed.js"
+          ></script>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-separator bg-canvas text-foreground border-t">
+    <div
+      class="max-w-page mx-auto flex w-full flex-col gap-8 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-14"
+    >
+      <LogoLink size="footer" />
+      <nav
+        class="text-label text-muted flex flex-wrap gap-x-8 gap-y-3 font-medium uppercase"
+        aria-label="Footer navigation"
+      >
+        <a class="hover:text-foreground transition-colors" href="/terms/">
+          Terms
+        </a>
+        <a class="hover:text-foreground transition-colors" href="/privacy/">
+          Privacy
+        </a>
+      </nav>
+    </div>
+  </footer>
+</Layout>
