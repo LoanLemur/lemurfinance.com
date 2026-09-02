@@ -3,21 +3,3 @@ set -euo pipefail
 
 echo "Installing Node dependencies..."
 npm ci
-
-cloudflared="$HOME/.local/bin/cloudflared"
-if ! command -v cloudflared >/dev/null 2>&1 && [[ ! -x "$cloudflared" ]]; then
-  case "$(uname -m)" in
-    x86_64) architecture=amd64 ;;
-    aarch64|arm64) architecture=arm64 ;;
-    *) echo "Unsupported architecture for cloudflared: $(uname -m)" >&2; exit 1 ;;
-  esac
-
-  echo "Installing cloudflared..."
-  mkdir -p "$(dirname "$cloudflared")"
-  curl --fail --location --retry 3 \
-    --output "$cloudflared" \
-    "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-$architecture"
-  chmod +x "$cloudflared"
-fi
-
-.agents/resume

@@ -1,16 +1,17 @@
 ## Development
 
-When starting the dev server, use background mode:
+In an orb, start the Astro development server and its native Amp Portal with:
 
 ```
-astro dev --background
+amp orb services ensure
 ```
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+Manage it with `amp orb service status web`, `amp orb service logs web`,
+`amp orb service restart web`, and `amp orb service stop web`.
 
-In an orb, `.agents/resume` starts the dev server and a Cloudflare Quick Tunnel. The current
-remote preview URL is stored in `.amp/preview-url`. Run `.agents/preview` to repair the preview,
-and include that URL when reporting UI changes so they can be tested from another device.
+Use the portal URL printed by `amp orb services ensure` when reporting UI changes so they can be
+tested from another device. Outside an orb, use `astro dev --background`; manage that server with
+`astro dev stop`, `astro dev status`, and `astro dev logs`.
 
 ## Documentation
 

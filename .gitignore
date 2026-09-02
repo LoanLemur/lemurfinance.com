@@ -5,6 +5,7 @@ dist/
 
 # local agent runtime files
 .amp/*
+!.amp/services.yaml
 !.amp/plugins/
 !.amp/plugins/**
 

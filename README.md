@@ -40,13 +40,12 @@ All commands are run from the root of the project, from a terminal:
 
 ## Orb development
 
-Amp orbs automatically install dependencies, start the Astro development server, and expose it
-through a temporary Cloudflare Quick Tunnel. The remote preview URL is stored in
-`.amp/preview-url`; run `.agents/preview` to print it or repair the preview services.
+Amp orbs install dependencies through `.agents/setup`. The Astro development server is declared
+as a supervised service in `.amp/services.yaml`; run `amp orb services ensure` to start it and
+print its authenticated native Portal URL. The service survives Amp updates and orb pause/resume,
+and the Portal includes Amp's review widget for visual feedback.
 
-The `trycloudflare.com` URL is public, temporary, and intended only for testing development work
-from another device. It does not deploy the site to Cloudflare or change the production hosting;
-production deployments remain on Vercel.
+The Portal is only a development preview. Production deployments remain on Vercel.
 
 ## GitHub issue fixer orb
 
