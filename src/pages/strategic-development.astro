@@ -1,0 +1,564 @@
+---
+import Button from "../components/Button.astro";
+import LogoLink from "../components/LogoLink.astro";
+import Layout from "../layouts/Layout.astro";
+
+const problemDetails = [
+  "Most development firms bill for time. Their revenue goes up when the team gets bigger, the scope gets wider, and the project runs longer. None of that is tied to whether the product works.",
+  "The result is familiar. Estimates expand. Headcount gets added. Features ship that nobody uses. When the engagement ends, the firm moves on and you own the outcome alone.",
+  "Nobody has to act in bad faith for this to happen. The model simply pays for hours, so hours are what you get.",
+];
+
+const partnershipTerms = [
+  {
+    title: "Cost plus a set margin",
+    body: "The build is priced at cost plus a set margin, so you see what the work actually costs.",
+  },
+  {
+    title: "A share of revenue",
+    body: "Our real return comes from a share of the revenue the product generates.",
+  },
+  {
+    title: "Flexible contracts",
+    body: "No long-term commitments on resources, no minimum team size, and no lock-in. The team scales up or down with what the work needs.",
+  },
+];
+
+const workingPrinciples = [
+  {
+    title: "We scope for the outcome.",
+    body: "The smallest build that proves the business case comes first. We have no reason to sell you a bigger one.",
+  },
+  {
+    title: "We staff lean.",
+    body: "A small senior team sized to the work. Adding people raises your cost without raising our return.",
+  },
+  {
+    title: "We keep you free to leave.",
+    body: "No long-term resource commitments. We keep the work by earning it.",
+  },
+  {
+    title: "We stay after launch.",
+    body: "Our return comes from the product performing over time, so we keep operating and improving it.",
+  },
+  {
+    title: "We tell you when not to build.",
+    body: "If the numbers do not work, it costs us as well. You will hear it early.",
+  },
+];
+
+const services = [
+  {
+    title: "Embedded financial technology",
+    body: "Add payments, financing, servicing, and collections to the software you already run. We connect Lemur's platform and API to your application, CRM, or system of record, so your customers pay and finance inside your product and you earn on the volume.",
+    fit: "Software platforms, marketing firms, and multi-location operators that want a financial product without building one from scratch.",
+  },
+  {
+    title: "Full digital product builds",
+    body: "From concept to a live product with real users. We handle product strategy, design, engineering, payments, and launch, then stay on to run and improve it. You get a complete product team without hiring one.",
+    fit: "Founders and operators with a proven service business and a product idea that needs to be built properly the first time.",
+  },
+  {
+    title: "Consulting and advisory",
+    body: "Senior counsel on a defined problem or on an ongoing basis. We work with leadership on product direction, payments and lending program design, unit economics and financial modeling, systems integration, technology budget, partner and lender selection, and capital planning.",
+    fit: "Owners and leadership teams that want people who have built it before at the table, without adding to the executive payroll.",
+  },
+];
+
+const comparison = [
+  {
+    label: "How they earn",
+    traditional: "Hourly or per-head rates with margin built in",
+    lemur: "Cost plus a set margin, and a share of revenue",
+  },
+  {
+    label: "What grows their revenue",
+    traditional: "Bigger teams, wider scope, longer timelines",
+    lemur: "Your revenue",
+  },
+  {
+    label: "Contract terms",
+    traditional: "Long-term commitments and minimum team sizes",
+    lemur: "Flexible, with no long-term resource commitments",
+  },
+  {
+    label: "Who carries the risk",
+    traditional: "You",
+    lemur: "Both of us",
+  },
+  {
+    label: "Team shape",
+    traditional: "Scales with budget",
+    lemur: "Small, senior, sized to the work",
+  },
+  {
+    label: "After launch",
+    traditional: "Handoff, then a maintenance contract",
+    lemur: "We keep operating and improving",
+  },
+  {
+    label: "Relationship",
+    traditional: "Vendor",
+    lemur: "Strategic partner",
+  },
+];
+
+const engagementSteps = [
+  {
+    title: "Understand the business",
+    body: "We learn how you make money, how your customers buy, and where technology would change the numbers.",
+  },
+  {
+    title: "Build the business case together",
+    body: "We model the opportunity with you: what it costs, what it should return, and what has to be true for it to work.",
+  },
+  {
+    title: "Agree on the partnership",
+    body: "Typically cost plus a set margin on the build and a share of the revenue it produces, under a flexible contract with no long-term resource commitments.",
+  },
+  {
+    title: "Build and launch",
+    body: "A small senior team designs, builds, and ships, connected to the systems you already run.",
+  },
+  {
+    title: "Operate and grow",
+    body: "We stay involved, measure against the business case, and keep improving the product as it scales.",
+  },
+];
+
+const audiences = [
+  {
+    title: "Software platforms",
+    body: "that want payments and financing inside their product.",
+  },
+  {
+    title: "High-ticket service businesses",
+    body: "in healthcare, home services, and automotive that want technology to drive revenue.",
+  },
+  {
+    title: "Founders and operators",
+    body: "building a digital product on top of a business that already works.",
+  },
+];
+
+const title = "Strategic Development";
+const description =
+  "Lemur designs, builds, and operates financial technology and digital products for growing businesses, priced at cost plus a set margin and a share of the revenue the product generates.";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: title,
+  description,
+  serviceType: "Software development and technology consulting",
+  url: new URL("/strategic-development/", Astro.site),
+  provider: {
+    "@type": "Organization",
+    "@id": "https://www.lemurfinance.com/#organization",
+    name: "Lemur Finance, LLC",
+  },
+};
+---
+
+<Layout {title} {description}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  />
+
+  <header class="border-separator bg-canvas text-foreground border-b">
+    <nav
+      class="max-w-page mx-auto flex w-full items-center justify-between px-5 py-5 sm:px-8 lg:px-14 lg:py-6"
+      aria-label="Primary navigation"
+    >
+      <LogoLink />
+      <Button href="/contact/" size="compact">Discuss a partnership</Button>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section
+      class="bg-canvas text-foreground"
+      aria-labelledby="strategic-development-heading"
+    >
+      <div
+        class="max-w-page mx-auto flex w-full flex-col gap-10 px-5 py-16 sm:px-8 sm:py-20 lg:gap-12 lg:px-14 lg:py-24"
+      >
+        <div class="flex flex-col gap-6">
+          <h1
+            id="strategic-development-heading"
+            class="text-display max-w-6xl font-bold text-balance"
+          >
+            A development partner that wins when you do.
+          </h1>
+        </div>
+
+        <div
+          class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
+        >
+          <p class="text-lead text-muted max-w-2xl">
+            Lemur designs, builds, and operates financial technology and digital
+            products for growing businesses. We take risk alongside you and
+            share in the upside, so our incentives point at your results, not
+            our invoice.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-6 md:shrink-0">
+            <Button href="/contact/">Discuss a partnership</Button>
+            <a
+              href="#how-it-works"
+              class="text-muted hover:text-foreground focus-visible:outline-brand-focus text-sm font-semibold tracking-tight transition-colors focus-visible:outline-2 focus-visible:outline-offset-4"
+            >
+              See how it works
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="border-separator bg-canvas text-foreground border-t"
+      aria-labelledby="problem-heading"
+    >
+      <div
+        class="max-w-page mx-auto grid w-full gap-6 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-14 lg:py-32"
+      >
+        <div class="flex flex-col gap-6">
+          <h2
+            id="problem-heading"
+            class="text-section max-w-4xl font-bold text-balance"
+          >
+            Outsourced development is priced to grow the team, not the business.
+          </h2>
+        </div>
+        <div class="flex max-w-2xl flex-col gap-4">
+          {
+            problemDetails.map((detail) => (
+              <p class="text-copy text-muted">{detail}</p>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="how-it-works"
+      class="border-separator bg-surface text-foreground border-y"
+      aria-labelledby="partnership-heading"
+    >
+      <div
+        class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 py-20 sm:px-8 lg:px-14 lg:py-28"
+      >
+        <div class="grid gap-6 lg:grid-cols-2 lg:gap-20">
+          <div class="flex flex-col gap-6">
+            <h2
+              id="partnership-heading"
+              class="text-section max-w-4xl font-bold text-balance"
+            >
+              We put our own return behind the work.
+            </h2>
+          </div>
+          <p class="text-lead text-muted max-w-2xl">
+            Most Lemur engagements follow a simple structure. If the product
+            performs, we both do well. If it does not, we feel it too.
+          </p>
+        </div>
+
+        <ul class="border-separator grid border-t border-l lg:grid-cols-3">
+          {
+            partnershipTerms.map((term) => (
+              <li class="border-separator flex flex-col gap-3 border-r border-b p-6 sm:p-8">
+                <h3 class="text-title font-semibold">{term.title}</h3>
+                <p class="text-copy text-muted">{term.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section
+      class="bg-canvas text-foreground"
+      aria-labelledby="principles-heading"
+    >
+      <div
+        class="max-w-page mx-auto grid w-full gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[minmax(18rem,0.7fr)_minmax(0,1.3fr)] lg:gap-20 lg:px-14 lg:py-32"
+      >
+        <div class="flex flex-col gap-6 lg:sticky lg:top-12 lg:self-start">
+          <h2
+            id="principles-heading"
+            class="text-heading max-w-xl font-bold text-balance"
+          >
+            That changes how we work.
+          </h2>
+          <p class="text-copy text-muted max-w-xl">
+            A vendor gets paid for the work. A partner gets paid for the result.
+          </p>
+        </div>
+
+        <ul class="border-separator border-t">
+          {
+            workingPrinciples.map((principle) => (
+              <li class="border-separator grid gap-4 border-b py-8 sm:grid-cols-[minmax(12rem,0.65fr)_minmax(0,1.35fr)] sm:gap-10 sm:py-10">
+                <h3 class="text-title font-semibold">{principle.title}</h3>
+                <p class="text-copy text-muted max-w-2xl">{principle.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section
+      class="bg-inverse text-inverse-foreground"
+      aria-labelledby="services-heading"
+    >
+      <div
+        class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 py-20 sm:px-8 lg:px-14 lg:py-28"
+      >
+        <div class="flex flex-col gap-6">
+          <h2
+            id="services-heading"
+            class="text-section max-w-4xl font-bold text-balance"
+          >
+            Three ways we work with you.
+          </h2>
+        </div>
+
+        <ol class="border-inverse-border grid border-t border-l lg:grid-cols-3">
+          {
+            services.map((service, index) => (
+              <li class="border-inverse-border flex flex-col gap-10 border-r border-b p-6 sm:p-8">
+                <span class="text-label text-inverse-brand font-medium">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div class="flex flex-1 flex-col gap-3">
+                  <h3 class="text-title font-semibold">{service.title}</h3>
+                  <p class="text-copy text-inverse-muted">{service.body}</p>
+                </div>
+                <p class="text-copy text-inverse-muted border-inverse-border border-t pt-6">
+                  <span class="text-inverse-foreground font-semibold">
+                    Good fit for:
+                  </span>{" "}
+                  {service.fit}
+                </p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section
+      class="bg-canvas text-foreground"
+      aria-labelledby="difference-heading"
+    >
+      <div
+        class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 py-20 sm:px-8 lg:px-14 lg:py-28"
+      >
+        <div class="flex flex-col gap-6">
+          <h2
+            id="difference-heading"
+            class="text-section max-w-4xl font-bold text-balance"
+          >
+            Same skills. Different incentives.
+          </h2>
+        </div>
+
+        <table class="text-copy w-full border-collapse text-left">
+          <thead>
+            <tr
+              class="border-separator grid grid-cols-2 gap-x-6 border-b sm:table-row"
+            >
+              <td class="hidden py-4 pr-6 sm:table-cell sm:w-1/4"></td>
+              <th
+                scope="col"
+                class="text-label text-muted py-4 font-medium uppercase sm:w-[37.5%] sm:pr-6"
+              >
+                Traditional outsourced development
+              </th>
+              <th
+                scope="col"
+                class="text-label text-brand-text py-4 font-medium uppercase sm:w-[37.5%]"
+              >
+                Lemur Strategic Development
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              comparison.map((row) => (
+                <tr class="border-separator grid grid-cols-2 gap-x-6 gap-y-2 border-b py-5 sm:table-row sm:py-0">
+                  <th
+                    scope="row"
+                    class="col-span-2 align-top font-semibold sm:py-5 sm:pr-6"
+                  >
+                    {row.label}
+                  </th>
+                  <td class="text-muted align-top sm:py-5 sm:pr-6">
+                    {row.traditional}
+                  </td>
+                  <td class="align-top font-medium sm:py-5">{row.lemur}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section
+      class="border-separator bg-surface text-foreground border-y"
+      aria-labelledby="engagement-heading"
+    >
+      <div
+        class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 py-20 sm:px-8 lg:px-14 lg:py-28"
+      >
+        <div class="flex flex-col gap-6">
+          <h2
+            id="engagement-heading"
+            class="text-section max-w-4xl font-bold text-balance"
+          >
+            From first conversation to shared results.
+          </h2>
+        </div>
+
+        <ol
+          class="border-separator grid border-t border-l md:grid-cols-2 xl:grid-cols-5"
+        >
+          {
+            engagementSteps.map((step, index) => (
+              <li class="border-separator flex min-h-64 flex-col gap-10 border-r border-b p-6 sm:p-7">
+                <span class="text-label text-brand-text font-medium">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div class="flex flex-col gap-3">
+                  <h3 class="text-lg font-semibold tracking-tight">
+                    {step.title}
+                  </h3>
+                  <p class="text-copy text-muted">{step.body}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section
+      class="bg-canvas text-foreground"
+      aria-labelledby="operators-heading"
+    >
+      <div
+        class="max-w-page mx-auto grid w-full gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-14 lg:py-28"
+      >
+        <div class="flex flex-col gap-6">
+          <h2
+            id="operators-heading"
+            class="text-heading font-bold text-balance"
+          >
+            Operators first. Engineers second.
+          </h2>
+          <p class="text-copy text-muted max-w-xl">
+            Lemur's founders have built payment, lending, data, and
+            customer-operations systems for Fiserv, Credit Karma, MoneyLion,
+            Innovation Refunds, and Dow Jones. We run our own payments, lending,
+            and collections orchestration platform in production today, so the
+            advice we give is advice we follow.
+          </p>
+          <p class="text-copy text-muted max-w-xl">
+            We are selective. Sharing risk means we only take on work we believe
+            in.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-6">
+          <h3 class="text-title font-semibold">We work best with:</h3>
+          <ul class="border-separator border-t">
+            {
+              audiences.map((audience) => (
+                <li class="border-separator text-copy text-muted border-b py-6">
+                  <span class="text-foreground font-semibold">
+                    {audience.title}
+                  </span>{" "}
+                  {audience.body}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="bg-brand-solid text-on-brand"
+      aria-labelledby="contact-heading"
+    >
+      <div
+        class="max-w-page mx-auto flex w-full flex-col gap-9 px-5 py-20 sm:px-8 lg:px-14 lg:py-28"
+      >
+        <h2
+          id="contact-heading"
+          class="text-section max-w-5xl font-bold text-balance"
+        >
+          Let's see if there is something worth building together.
+        </h2>
+        <div
+          class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
+        >
+          <p class="text-copy max-w-2xl">
+            Tell us about your business and the opportunity you see. If we think
+            it works, we will tell you how we would partner on it. If we do not,
+            we will tell you that too.
+          </p>
+          <Button href="/contact/" variant="inverse">
+            Discuss a partnership
+          </Button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-canvas text-foreground">
+    <div
+      class="max-w-page mx-auto flex w-full flex-col gap-12 px-5 pt-12 pb-6 sm:px-8 lg:px-14"
+    >
+      <div
+        class="text-label text-muted flex flex-col gap-6 font-medium uppercase md:flex-row md:items-center md:justify-between"
+      >
+        <LogoLink size="footer" />
+        <nav
+          class="flex flex-wrap gap-x-8 gap-y-3"
+          aria-label="Footer navigation"
+        >
+          <a
+            class="hover:text-foreground transition-colors"
+            href="/#how-we-partner">How we partner</a
+          >
+          <a
+            class="hover:text-foreground transition-colors"
+            href="/#capabilities">Capabilities</a
+          >
+          <a
+            class="text-foreground"
+            href="/strategic-development/"
+            aria-current="page">Strategic development</a
+          >
+          <a class="hover:text-foreground transition-colors" href="/#team">
+            Team
+          </a>
+          <a class="hover:text-foreground transition-colors" href="/contact/">
+            Contact
+          </a>
+          <a class="hover:text-foreground transition-colors" href="/terms/">
+            Terms
+          </a>
+          <a class="hover:text-foreground transition-colors" href="/privacy/">
+            Privacy
+          </a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</Layout>
