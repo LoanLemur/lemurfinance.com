@@ -173,7 +173,16 @@ const structuredData = {
       aria-label="Primary navigation"
     >
       <LogoLink />
-      <Button href="/contact/" size="compact">Discuss a partnership</Button>
+      <div class="flex items-center gap-3 sm:gap-5">
+        <a
+          href="/strategic-development/"
+          class="text-foreground focus-visible:outline-brand-focus hidden text-sm font-semibold tracking-tight whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 sm:inline"
+          aria-current="page"
+        >
+          Strategic development
+        </a>
+        <Button href="/contact/" size="compact">Discuss a partnership</Button>
+      </div>
     </nav>
   </header>
 
