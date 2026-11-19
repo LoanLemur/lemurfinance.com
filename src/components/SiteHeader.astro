@@ -1,0 +1,134 @@
+---
+import Button from "./Button.astro";
+import LogoLink from "./LogoLink.astro";
+
+const links = [
+  { href: "/strategic-development/", label: "Strategic development" },
+  { href: "https://app.lemurpayments.com/user/new", label: "Sign in" },
+].map((link) => ({ ...link, current: Astro.url.pathname === link.href }));
+---
+
+<header class="border-separator bg-canvas text-foreground relative border-b">
+  <nav aria-label="Primary navigation">
+    <div
+      class="max-w-page mx-auto flex w-full items-center justify-between gap-3 px-5 py-5 sm:px-8 lg:px-14 lg:py-6"
+    >
+      <LogoLink />
+
+      <div class="flex items-center gap-3 sm:gap-5">
+        <ul class="hidden items-center gap-5 sm:flex">
+          {
+            links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  aria-current={link.current ? "page" : undefined}
+                  class:list={[
+                    "focus-visible:outline-brand-focus text-sm font-semibold tracking-tight whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-4",
+                    link.current
+                      ? "text-foreground"
+                      : "text-muted hover:text-foreground",
+                  ]}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="hidden min-[22.5rem]:block">
+          <Button href="/contact/" size="compact" class="whitespace-nowrap">
+            <span class="sm:hidden">Partner with us</span>
+            <span class="hidden sm:inline">Discuss a partnership</span>
+          </Button>
+        </div>
+        <button
+          type="button"
+          class="group text-foreground focus-visible:outline-brand-focus -mr-2 flex size-11 items-center justify-center focus-visible:outline-2 sm:hidden"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          data-menu-toggle
+        >
+          <span class="sr-only">Menu</span>
+          <svg
+            class="size-6 group-aria-expanded:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+          <svg
+            class="hidden size-6 group-aria-expanded:block"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M6 6l12 12M18 6L6 18"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="site-menu"
+      class="border-separator bg-canvas absolute inset-x-0 top-full z-20 border-b sm:hidden"
+      hidden
+    >
+      <ul class="flex flex-col px-5">
+        {
+          links.map((link) => (
+            <li class="border-separator border-b">
+              <a
+                href={link.href}
+                aria-current={link.current ? "page" : undefined}
+                class:list={[
+                  "text-lead focus-visible:outline-brand-focus block py-4 font-semibold tracking-tight focus-visible:outline-2 focus-visible:-outline-offset-2",
+                  link.current ? "text-foreground" : "text-muted",
+                ]}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="px-5 pb-5">
+        <Button href="/contact/" class="w-full">Discuss a partnership</Button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const header = document.querySelector("header")!;
+  const toggle = header.querySelector<HTMLButtonElement>("[data-menu-toggle]")!;
+  const menu = document.getElementById("site-menu")!;
+
+  const setOpen = (open: boolean) => {
+    toggle.setAttribute("aria-expanded", String(open));
+    menu.hidden = !open;
+  };
+
+  toggle.addEventListener("click", () => setOpen(menu.hidden));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !menu.hidden) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  // Close when tapping outside the header or following a link in the menu.
+  document.addEventListener("click", (event) => {
+    const target = event.target as Element;
+    if (!header.contains(target) || target.closest("#site-menu a")) {
+      setOpen(false);
+    }
+  });
+  matchMedia("(min-width: 40rem)").addEventListener("change", (event) => {
+    if (event.matches) setOpen(false);
+  });
+</script>

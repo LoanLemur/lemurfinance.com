@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import Button from "../../components/Button.astro";
 import LogoLink from "../../components/LogoLink.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
 import Layout from "../../layouts/Layout.astro";
 
 type Capability = CollectionEntry<"capabilities">;
@@ -54,23 +55,7 @@ const structuredData = {
     set:html={JSON.stringify(structuredData)}
   />
 
-  <header class="border-separator bg-canvas text-foreground border-b">
-    <nav
-      class="max-w-page mx-auto flex w-full items-center justify-between px-5 py-5 sm:px-8 lg:px-14 lg:py-6"
-      aria-label="Primary navigation"
-    >
-      <LogoLink />
-      <div class="flex items-center gap-3 sm:gap-5">
-        <a
-          href="/strategic-development/"
-          class="text-muted hover:text-foreground focus-visible:outline-brand-focus hidden text-sm font-semibold tracking-tight whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 sm:inline"
-        >
-          Strategic development
-        </a>
-        <Button href="/contact/" size="compact">Discuss a partnership</Button>
-      </div>
-    </nav>
-  </header>
+  <SiteHeader />
 
   <main id="main" tabindex="-1">
     <section
